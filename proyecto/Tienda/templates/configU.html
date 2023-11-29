@@ -1,0 +1,142 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaginaInicio</title>
+    <link rel="stylesheet" href="{% static 'configU.css' %}">
+    <script src="{% static 'sentencias.js' %}"></script>
+</head>
+<body>
+    <div class="FondoPr">
+        <nav>
+            <div class="Buscador">
+                <div class="logo">
+                    <a href="{% url 'InicioSesionIniciada' %}">
+                        <img class="icono" src="{% static 'imagenes/icon.png' %}">
+                    </a>
+                    <a href="{% url 'InicioSesionIniciada' %}">
+                        <label>FOXSHOP</label>
+                    </a>  
+                </div>
+                <div class="search">
+                    <div class="categorias">
+                        <label>Categorias</label>
+                        <img class="flecha" src="{% static 'imagenes/flecha.png' %}">
+                    </div>
+                    <div class="buscar">
+                        <input id="input1" type="text" placeholder="Buscar en foxshop.com">
+                    </div>
+                    <a href="{% url 'busqueda' %}">
+                        <img class="lupa" src="{% static 'imagenes/lupa.jpg' %}">
+                    </a>
+                </div>
+                <input type="checkbox" class="hidden-checkbox">
+                <div class="usuario">
+                    <img class="user" src="{% static 'imagenes/user.png' %}">
+                    <label class="bienvenidoTexto">Bienvenido,</label>
+                    <label id="nombreUsuario" class="nombreUsuario" for="menuCheckbox">name</label>
+                    <input type="checkbox" id="menuCheckbox" class="hidden-checkbox">
+                    <div class="desplegable">
+                        <div class="menuOpciones">
+                            <a href="{% url 'configU' %}">Configuracion</a>
+                            <a href="{% url 'InicioSesion' %}">Cerrar Sesion</a>
+                        </div>
+                    </div>
+                </div>            
+                <div class="compra">
+                    <a href="{% url 'carrito' %}">
+                        <img src="{% static 'imagenes/carrito.png' %}">
+                        <div class="texto">
+                            <label>Carrito</label>
+                    </a>
+                    </div>
+                </div>
+            </div>
+            <div class="Barra">
+                <div class="tipos">
+                    <div>
+                        <a href="{% url 'InicioSesionIniciada' %}">
+                            <label>Inicio</label>
+                        </a>
+                    </div>
+                    <div>
+                        <label class="lomas">Lo mas vendido</label>
+                        <img class="star" src="{% static 'imagenes/estrella.png' %}">
+                    </div>
+                    <div>
+                        <label>Promociones</label>
+                    </div>
+                    <div>
+                        <label>Lo nuevo</label>
+                    </div>
+                    <div>
+                        <label>Musica</label>
+                    </div>
+                    <div>
+                        <label>Electronicos</label>
+                    </div>
+                    <div>
+                        <a href="{% url 'historialCompra' %}">
+                            <label>Historial de compra</label>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="Principal">
+
+            <div class="recuadromorado">
+                <div class="title">
+                    <h1>Configuración del usuario</h1>
+                </div>
+
+                <div class="contentinputs">
+                    <div>
+                        <h3>Nombre</h3>
+                        <input id="nombre" type="text" class="input-personalizado">
+                    </div>
+                    <div>
+                        <h3>Apellidos</h3>
+                        <input id="apellido" type="text" class="input-personalizado">
+                    </div>
+                    <div>
+                        <h3>Correo electrónico</h3>
+                        <input id="correo" type="text" class="input-personalizado">
+                    </div>
+                    <div>
+                        <h3>Num.Teléfono</h3>
+                        <input id="telefono" type="text" class="input-personalizado">
+                    </div>
+                    <div>
+                        <h3>Contraseña actual</h3>
+                        <input id="contraseña" type="text" class="input-personalizado">
+                    </div>
+                    <div>
+                        <h3>Contraseña nueva</h3>
+                        <input id="NuevaContra" type="text" class="input-personalizado">
+                    </div>
+                </div>
+                
+                <h3 class="title2">Dirección de envío</h3>
+                
+                <div class="txtarea">
+                    <textarea id="direccion" class="textareamod" placeholder=""></textarea>
+                </div>
+
+                <div class="botones">
+                    <a href="{% url 'InicioSesionIniciada' %}"><button class="boton-personalizado">Regresar</button></a>
+                    <button id="botonActualizar" class="boton-personalizado2">Actualizar</button>
+                </div>  
+                
+            </div>
+
+        </div>
+
+    </div>
+    <script src="{% static 'sentencias.js' %}"></script>
+</body>
+</html>

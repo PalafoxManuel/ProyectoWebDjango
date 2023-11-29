@@ -1,0 +1,404 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaginaInicio</title>
+    <link rel="stylesheet" href="{% static 'carrito.css' %}">
+    <script src="{% static './sentencias.js' %}"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="Buscador">
+            <div class="logo">
+                <a href="{% static './InicioSesionIniciada.html' %}">
+                    <img class="icono" src="{% static './imagenes/icon.png' %}">
+                </a>
+                <a href="{% static './InicioSesionIniciada.html' %}">
+                    <label>FOXSHOP</label>
+                </a>
+            </div>
+            <div class="search">
+                <div class="categorias">
+                    <label>Categorias</label>
+                    <img class="flecha" src="{% static './imagenes/flecha.png' %}">
+                </div>
+                <div class="buscar">
+                    <input id="input1" type="text" placeholder="Buscar en foxshop.com">
+                </div>
+                <a href="{% static 'busqueda.html' %}">
+                    <img class="lupa" src="{% static './imagenes/lupa.jpg' %}">
+                </a>
+            </div>
+            <input type="checkbox" class="hidden-checkbox">
+            <div class="usuario">
+                <img class="user" src="{% static './imagenes/user.png' %}">
+                <label class="bienvenidoTexto">Bienvenido,</label>
+                <label id="nombreUsuario" class="nombreUsuario" for="menuCheckbox">Manuel P.</label>
+                <input type="checkbox" id="menuCheckbox" class="hidden-checkbox">
+                <div class="desplegable">
+                    <div class="menuOpciones">
+                        <a href="{% static 'configU.html' %}">Configuracion</a>
+                        <a href="{% static './InicioSesion.html' %}">Cerrar Sesion</a>
+                    </div>
+                </div>
+            </div>
+            <div class="compra">
+                <a href="{% static 'carrito.html' %}">
+                    <img src="{% static './imagenes/carrito.png' %}">
+                    <div class="texto">
+                        <label>Carrito</label>
+                </a>
+            </div>
+        </div>
+        </div>
+        <div class="Barra">
+            <div class="tipos">
+                <div>
+                    <a href="{% static './InicioSesionIniciada.html' %}">
+                        <label>Inicio</label>
+                    </a>
+                </div>
+                <div>
+                    <label class="lomas">Lo mas vendido</label>
+                    <img class="star" src="{% static './imagenes/estrella.png' %}">
+                </div>
+                <div>
+                    <label>Promociones</label>
+                </div>
+                <div>
+                    <label>Lo nuevo</label>
+                </div>
+                <div>
+                    <label>Musica</label>
+                </div>
+                <div>
+                    <label>Electronicos</label>
+                </div>
+                <div>
+                    <a href="{% static './historialCompra.html' %}">
+                        <label>Historial de compra</label>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="Principal">
+        <div class="contenido">
+            <div class="tucarrito">
+                <h1>Tu carrito</h1>
+            </div>
+            <div class="contenedorPro">
+                <div class="izquierda">
+                    <div class="txtos">
+                        <h2 class="first">Producto</h2>
+                        <h2 class="second">Cantidad</h2>
+                        <h2 class="second">Precio Unitario</h2>
+                    </div>
+                    <div id="contenedorProductos"></div>
+                    <div class="producto" style="border-top: 4px solid #312F48; gap: 40%">
+                        <div>
+                            <div style="margin-top:30%;">
+                                <img src="{% static 'img/return.png' %}" alt="" width="15px">
+                                <a href="InicioSesionIniciada.html" style="color: #fff;">Continuar comprando</a>
+                            </div>
+                        </div>
+                        <div
+                            style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 2fr 2fr; border-bottom: 4px solid #312F48;">
+                            <a>Subtotal:</a>
+                            <p id="subtotal">0</p>
+                            <a style="border-bottom: 4px solid #312F48; width:40%;">Envío:</a>
+                            <p style=" border-bottom: 4px solid #312F48;">Gratis</p>
+                            <p>Total:</p>
+                            <p id="total">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="derecha">
+                    <div class="contenedorMorado">
+                        <div class="title">
+                            <h1>Método de pago</h1>
+                        </div>
+                        <p>Método de pago:</p>
+                        <div class="tarjeta">
+                            <input type='radio' name="gender"> <img src="{% static 'imagenes/tcredito.png' %}"
+                                class="imgtarjeta">Tarjeta
+                        </div>
+                        <div class="paypal">
+                            <input type='radio' name="gender"> <img src="{% static 'imagenes/paypal.png' %}"
+                                class="imgpaypal">Paypal
+                        </div>
+                        <p style="margin-top:2vh; margin-bottom:2vh;">Nombre en la tarjeta</p>
+                        <p style="font-weight: lighter;">MANUEL EDUARDO PALAFOX GARCIA</p>
+                        <p style="margin-top:2vh;">Numero de tarjeta</p>
+                        <div class="puntosblanco">
+                            <img src="{% static 'imagenes/puntos.png' %}" class="puntosblancos">
+                            <img src="{% static 'imagenes/puntos.png' %}" class="puntosblancos">
+                            <img src="{% static 'imagenes/puntos.png' %}" class="puntosblancos">
+                            <a style="margin-top:2vh; margin-bottom:2vh;">2153</a>
+                        </div>
+                        <div class="fechaexp">
+                            <a>Fecha de expiracion</a>
+                            <a>CVV:</a>
+                        </div>
+                        <div>
+                            <button class="cantidadextra">2</button>
+                            <a style=" margin-right: 2vh;">∨</a>
+                            <button class="cantidadextra">2024</button>
+                            <a style=" margin-right: 2vh;">∨</a>
+                            <button class="cantidadextra">123</button>
+                            <a style=" margin-right: 2vh;">∨</a>
+                        </div>
+                        <div style="display: flex; justify-content:center; margin-top:9%; align-items:center;">
+                            <button class="boton-personalizado2" onclick="realizarCompra()"> <img
+                                    src="{% static 'imagenes/mandadoicon.png' %}" style="width: 5%;"> <a>Realizar
+                                    compra</a> </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Obtener el nombre de usuario del Local Storage
+        const nombreUsuario = localStorage.getItem('nombreUsuario');
+
+        // Asignar el nombre de usuario al label
+        const labelNombreUsuario = document.getElementById('nombreUsuario');
+        labelNombreUsuario.textContent = nombreUsuario;
+
+        var usuariosRegistrados = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+        var usuarioActual = usuariosRegistrados.find(usuario => usuario.correo === localStorage.getItem('correo'));
+
+
+        var productos = usuarioActual.carrito;
+
+        function refreshDatosLocalStorage() {
+            usuariosRegistrados = JSON.parse(localStorage.getItem('usuarios')) || [];
+            usuarioActual = usuariosRegistrados.find(usuario => usuario.correo === localStorage.getItem('correo'));
+            productos = usuarioActual.carrito;
+        }
+
+        function mostrarProductos() {
+
+            const contenedor = document.getElementById('contenedorProductos');
+
+            productos.forEach(producto => {
+
+                const divProducto = document.createElement('div');
+
+                divProducto.classList.add('producto');
+
+                divProducto.innerHTML = `
+                    <img src="${producto.urlImagen}" style="width:10%; vertical-align: middle; margin-right: 4vh; margin-left:7px;">
+                    <a class="desc">${producto.nombre}</a>
+                    <button class="cantidad" onclick="decrementar(this)">-</button>
+                    <p class="cantidad" id="cantidad">${producto.cantidad}</p>
+                    <button class="cantidadmas" onclick="incrementar(this)">+</button>
+                    <h1>$${producto.precio}</h1>
+                    <button class="bnt-delete" onclick = "eliminarProducto(this)">X</button>
+                `;
+                contenedor.appendChild(divProducto);
+            });
+
+        }
+
+        function calcularSubtotal() {
+            refreshDatosLocalStorage();
+
+            let subtotal = 0;
+
+            productos.forEach(producto => {
+                const precioTotalProducto = producto.precio * producto.cantidad;
+                subtotal += precioTotalProducto;
+            });
+
+            return subtotal;
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            refreshDatosLocalStorage();
+
+            mostrarProductos();
+            actualizarSubtotalYTotal();
+        });
+
+        var cantidadElemento = document.getElementById("cantidad");
+
+        function decrementar(elemento) {
+            var cantidadElemento = elemento.nextElementSibling;
+            var cantidad = parseInt(cantidadElemento.textContent);
+            if (cantidad > 1) {
+                cantidad--;
+                cantidadElemento.textContent = cantidad;
+                actualizarCantidadEnLocalStorage(elemento, cantidad);
+
+                actualizarSubtotalYTotal();
+
+            }
+        }
+
+        function incrementar(elemento) {
+            var cantidadElemento = elemento.previousElementSibling;
+            var cantidad = parseInt(cantidadElemento.textContent);
+            cantidad++;
+            cantidadElemento.textContent = cantidad;
+            actualizarCantidadEnLocalStorage(elemento, cantidad);
+
+            actualizarSubtotalYTotal();
+        }
+
+        function actualizarCantidadEnLocalStorage(elemento, nuevaCantidad) {
+            // Obtener el nombre del producto asociado al botón en el que se hizo clic
+            const divProducto = elemento.closest('.producto');
+            const nombreProductoElemento = divProducto.querySelector('.desc');
+            const nombreProducto = nombreProductoElemento.textContent;
+
+            // Obtener la lista de usuarios del localStorage
+            const usuariosEnLocalStorage = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+            // Encontrar y actualizar la cantidad del producto específico en la lista
+            const usuarioIndex = usuariosEnLocalStorage.findIndex(usuario => usuario.correo === localStorage.getItem('correo'));
+            if (usuarioIndex !== -1) {
+                const carrito = usuariosEnLocalStorage[usuarioIndex].carrito;
+                const productoIndex = carrito.findIndex(producto => producto.nombre === nombreProducto);
+                if (productoIndex !== -1) {
+                    carrito[productoIndex].cantidad = nuevaCantidad;
+                }
+            }
+
+            // Guardar la lista actualizada en el localStorage
+            localStorage.setItem('usuarios', JSON.stringify(usuariosEnLocalStorage));
+
+            actualizarSubtotalYTotal();
+        }
+
+        function actualizarSubtotalYTotal() {
+            const subtotalElement = document.getElementById('subtotal');
+            const totalElement = document.getElementById('total');
+
+            const subtotal = calcularSubtotal();
+            const total = subtotal; // Puedes modificar aquí para agregar costos de envío u otros
+
+            subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+            totalElement.textContent = `$${total.toFixed(2)}`;
+
+        }
+
+        function eliminarProducto(elemento) {
+            // Obtener el div producto que contiene el botón
+            const divProducto = elemento.closest('.producto');
+
+            // Obtener el nombre del producto asociado al botón
+            const nombreProductoElemento = divProducto.querySelector('.desc');
+            const nombreProducto = nombreProductoElemento.textContent;
+
+            // Obtener la lista de usuarios del localStorage
+            const usuariosEnLocalStorage = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+            // Encontrar y eliminar el producto del carrito en la lista
+            const usuarioIndex = usuariosEnLocalStorage.findIndex(usuario => usuario.correo === localStorage.getItem('correo'));
+            if (usuarioIndex !== -1) {
+                const carrito = usuariosEnLocalStorage[usuarioIndex].carrito;
+                const productoIndex = carrito.findIndex(producto => producto.nombre === nombreProducto);
+                if (productoIndex !== -1) {
+                    carrito.splice(productoIndex, 1);
+                }
+            }
+
+            // Guardar la lista actualizada en el localStorage
+            localStorage.setItem('usuarios', JSON.stringify(usuariosEnLocalStorage));
+
+            // Eliminar el div producto de la interfaz gráfica
+            divProducto.remove();
+
+            // Actualizar subtotal y total si es necesario
+            actualizarSubtotalYTotal();
+        }
+
+
+        const compra = {
+
+            crearCompra: function (fechaActual, usuarioActual, total) {
+                return {
+                    fecha: fechaActual,
+                    productos: usuarioActual.carrito,
+                    total: total
+                };
+            },
+
+            agregarAlHistorial: function (usuarioActual, nuevaCompra) {
+
+                usuarioActual.historial.push(nuevaCompra);
+
+
+                // Obtener la lista de usuarios del localStorage
+                const usuariosRegistrados = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+                // Encontrar y actualizar al usuario actual en la lista
+                const index = usuariosRegistrados.findIndex(u => u.correo === usuarioActual.correo);
+                if (index !== -1) {
+                    usuariosRegistrados[index] = usuarioActual;
+                }
+
+                // Guardar la lista actualizada en el localStorage
+                localStorage.setItem('usuarios', JSON.stringify(usuariosRegistrados));
+
+                alert('Compra realizada!');
+
+            }
+
+        };
+        // Seleccionar el botón compra
+        const botonCompra = document.querySelector('.boton-personalizado2');
+
+        // Función a ejecutar cuando se hace clic en el botón
+        function vaciarCarrito() {
+            usuarioActual.carrito = []; // Asignar un array vacío al carrito del usuario
+            productos = [];
+            // Actualizar el usuario actual en el localStorage
+            const index = usuariosRegistrados.findIndex(u => u.correo === usuarioActual.correo);
+            if (index !== -1) {
+                usuariosRegistrados[index] = usuarioActual;
+                localStorage.setItem('usuarios', JSON.stringify(usuariosRegistrados));
+            }
+        }
+
+        function realizarCompra() {
+            refreshDatosLocalStorage();
+            const carritoVacio = usuarioActual.carrito.length === 0; // Verificar si el carrito está vacío
+            if (carritoVacio) {
+                alert('El carrito está vacío. Agrega productos antes de realizar la compra.');
+                return; // Salir de la función si el carrito está vacío
+            }
+
+            const fechaActual = new Date();
+
+            // Obtener día, mes y año
+            const dia = fechaActual.getDate().toString().padStart(2, '0'); // Agrega un 0 si el día es de un solo dígito
+            const mes = (fechaActual.getMonth() + 1).toString().padStart(2, '0'); // Los meses van de 0 a 11
+            const año = fechaActual.getFullYear();
+
+            // Formatear la fecha en dd/mm/aaaa
+            const fechaFormateada = `${dia}/${mes}/${año}`;
+
+            const subtotal = calcularSubtotal();
+            const nuevaCompra = compra.crearCompra(fechaFormateada, usuarioActual, subtotal);
+
+            compra.agregarAlHistorial(usuarioActual, nuevaCompra);
+
+            vaciarCarrito(); // Vaciar el carrito después de guardar la compra en el historial
+            location.reload();
+        }
+        // Añadir el event listener al botón para escuchar el clic
+        botonCompra.addEventListener('click', realizarCompra);
+
+    </script>
+</body>
+
+</html>
