@@ -13,10 +13,10 @@
     <nav>
         <div class="Buscador">
             <div class="logo">
-                <a href="./InicioSesionIniciada.html">
+                <a href="{% url 'InicioSesionIniciada' %}">
                     <img class="icono" src="{% static 'imagenes/icon.png' %}">
                 </a>
-                <a href="./InicioSesionIniciada.html">
+                <a href="{% url 'InicioSesionIniciada' %}">
                     <label>FOXSHOP</label>
                 </a>
             </div>
@@ -28,7 +28,7 @@
                 <div class="buscar">
                     <input id="input1" type="text" placeholder="Buscar en foxshop.com">
                 </div>
-                <a href="busqueda.html">
+                <a href="{% url 'busqueda' %}">
                     <img class="lupa" src="{% static 'imagenes/lupa.jpg' %}">
                 </a>
             </div>
@@ -40,24 +40,24 @@
                 <input type="checkbox" id="menuCheckbox" class="hidden-checkbox">
                 <div class="desplegable">
                     <div class="menuOpciones">
-                        <a href="{% static 'configU.html' %}">Configuracion</a>
-                        <a href="./InicioSesion.html">Cerrar Sesion</a>
+                        <a href="{% url 'configU' %}">Configuracion</a>
+                        <a href="{% url 'InicioSesion' %}">Cerrar Sesion</a>
                     </div>
                 </div>
             </div>
             <div class="compra">
-                <a href="{% static 'carrito.html' %}">
+                <a href="{% url 'carrito' %}">
                     <img src="{% static 'imagenes/carrito.png' %}">
                     <div class="texto">
                         <label>Carrito</label>
+                    </div>
                 </a>
             </div>
-        </div>
         </div>
         <div class="Barra">
             <div class="tipos">
                 <div>
-                    <a href="./InicioSesionIniciada.html">
+                    <a href="{% url 'InicioSesionIniciada' %}">
                         <label>Inicio</label>
                     </a>
                 </div>
@@ -78,14 +78,13 @@
                     <label>Electronicos</label>
                 </div>
                 <div>
-                    <a href="./historialCompra.html">
+                    <a href="{% url 'historialCompra' %}">
                         <label>Historial de compra</label>
                     </a>
                 </div>
             </div>
         </div>
     </nav>
-
 
     <main>
         <div class="contenedor-cat">
@@ -101,8 +100,8 @@
                     <p class="fuente2">Marca</p>
                     <ul>
                         <li><a href="">Sony</a></li>
-                        <li> <a href="">Apple</a></li>
-                        <li> <a href="">SkullCandy</a></li>
+                        <li><a href="">Apple</a></li>
+                        <li><a href="">SkullCandy</a></li>
                     </ul>
                     <p class="fuente2">Rating</p>
                     <ul>
@@ -144,7 +143,7 @@
                                 <div>
                                     <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
                                     <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
-                                    <img src="{% static 'img/gray-star.png'%}" alt="" height="15px">
+                                    <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
                                     <img src="{% static 'img/gray-star.png'%}" alt="" height="15px">
                                     <img src="{% static 'img/gray-star.png'%}" alt="" height="15px">
                                 </div>
@@ -162,15 +161,12 @@
                             </a>
                         </li>
                     </ul>
-
-
                 </div>
                 <p class="fuente1">FILTROS</p>
                 <div class="cat2">
                     <p>Precio (MX)</p>
                     <div class="precio">
                         <input type="text" placeholder="Min." class="back-style">
-
                         <input type="text" placeholder="Max." class="back-style">
                     </div>
                     <p class="fuente2">Características</p>
@@ -186,11 +182,8 @@
                         <input type="checkbox" name="c-volumen" id="c-volumen">
                         <label for="c-volumen">Control de volumen</label>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
 
         <div class="contenido">
@@ -206,7 +199,6 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="navegacion">
                     <div class="n-pag">
                         <input type="button" value="< Anterior" class="back-style">
@@ -223,20 +215,17 @@
                         <p>Ir a página</p>
                         <input type="text" placeholder="#" class="back-style">
                         <button class="back-style">Ir</button>
-
                     </div>
-
                 </div>
-
             </div>
-
             <div class="productos">
                 <div class="content-aud">
                     <div class="audifono">
                         <div>
                             <p id="desc">10% Desc.</p>
                         </div>
-                        <div class="imgAud"><img src="{% static 'img/audifonos/audSony.png' %}" alt="" height="200px">
+                        <div class="imgAud">
+                            <img src="{% static 'img/audifonos/audSony.png' %}" alt="" height="200px">
                         </div>
                         <div><b>Audífonos Inalámbricos Wh-ch720n Color Negro</b></div>
                         <div>
@@ -276,7 +265,6 @@
                                         height="35px">Comprar</button>
                             </a>
                         </div>
-
                     </div>
                 </div>
                 <div class="content-aud">
@@ -284,7 +272,8 @@
                         <div>
                             <p id="desc">57% Desc.</p>
                         </div>
-                        <div class="imgAud"><img src="{% static 'img/audifonos/audXiaomi.png' %}" alt="" height="200px">
+                        <div class="imgAud">
+                            <img src="{% static 'img/audifonos/audXiaomi.png' %}" alt="" height="200px">
                         </div>
                         <div><b>Xiaomi 36103 Audífonos Inalámbricos Redmi Buds 3 Lite</b></div>
                         <div>
@@ -324,7 +313,6 @@
                                         height="35px">Comprar</button>
                             </a>
                         </div>
-
                     </div>
                 </div>
                 <div class="content-aud">
@@ -332,7 +320,8 @@
                         <div>
                             <p id="desc">50% Desc.</p>
                         </div>
-                        <div class="imgAud"><img src="{% static 'img/audifonos/audSkull.png' %}" alt="" height="200px">
+                        <div class="imgAud">
+                            <img src="{% static 'img/audifonos/audSkull.png' %}" alt="" height="200px">
                         </div>
                         <div><b>SKULLCANDY Audífonos Alámbricos Ink d+ Negro IN Ear</b></div>
                         <div>
@@ -372,12 +361,9 @@
                                         height="35px">Comprar</button>
                             </a>
                         </div>
-
                     </div>
                 </div>
             </div>
-
-
         </div>
 
     </main>

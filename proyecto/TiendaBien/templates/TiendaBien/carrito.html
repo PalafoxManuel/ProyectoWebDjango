@@ -14,22 +14,22 @@
     <nav>
         <div class="Buscador">
             <div class="logo">
-                <a href="{% static './InicioSesionIniciada.html' %}">
-                    <img class="icono" src="{% static './imagenes/icon.png' %}">
+                <a href="{% url 'InicioSesionIniciada' %}">
+                    <img class="icono" src="{% static 'imagenes/icon.png' %}">
                 </a>
-                <a href="{% static './InicioSesionIniciada.html' %}">
+                <a href="{% url 'InicioSesionIniciada' %}">
                     <label>FOXSHOP</label>
                 </a>
             </div>
             <div class="search">
                 <div class="categorias">
                     <label>Categorias</label>
-                    <img class="flecha" src="{% static './imagenes/flecha.png' %}">
+                    <img class="flecha" src="{% static 'imagenes/flecha.png' %}">
                 </div>
                 <div class="buscar">
                     <input id="input1" type="text" placeholder="Buscar en foxshop.com">
                 </div>
-                <a href="{% static 'busqueda.html' %}">
+                <a href="{% url 'busqueda' %}">
                     <img class="lupa" src="{% static './imagenes/lupa.jpg' %}">
                 </a>
             </div>
@@ -41,13 +41,13 @@
                 <input type="checkbox" id="menuCheckbox" class="hidden-checkbox">
                 <div class="desplegable">
                     <div class="menuOpciones">
-                        <a href="{% static 'configU.html' %}">Configuracion</a>
-                        <a href="{% static './InicioSesion.html' %}">Cerrar Sesion</a>
+                        <a href="{% url 'configU' %}">Configuracion</a>
+                        <a href="{% url 'InicioSesion' %}">Cerrar Sesion</a>
                     </div>
                 </div>
             </div>
             <div class="compra">
-                <a href="{% static 'carrito.html' %}">
+                <a href="{% url 'carrito' %}">
                     <img src="{% static './imagenes/carrito.png' %}">
                     <div class="texto">
                         <label>Carrito</label>
@@ -58,7 +58,7 @@
         <div class="Barra">
             <div class="tipos">
                 <div>
-                    <a href="{% static './InicioSesionIniciada.html' %}">
+                    <a href="{% url 'InicioSesionIniciada' %}">
                         <label>Inicio</label>
                     </a>
                 </div>
@@ -79,7 +79,7 @@
                     <label>Electronicos</label>
                 </div>
                 <div>
-                    <a href="{% static './historialCompra.html' %}">
+                    <a href="{% url 'historialCompra' %}">
                         <label>Historial de compra</label>
                     </a>
                 </div>
@@ -103,7 +103,7 @@
                         <div>
                             <div style="margin-top:30%;">
                                 <img src="{% static 'img/return.png' %}" alt="" width="15px">
-                                <a href="InicioSesionIniciada.html" style="color: #fff;">Continuar comprando</a>
+                                <a href="{% url 'InicioSesionIniciada' %}" style="color: #fff;">Continuar comprando</a>
                             </div>
                         </div>
                         <div
@@ -161,6 +161,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <script>
         // Obtener el nombre de usuario del Local Storage

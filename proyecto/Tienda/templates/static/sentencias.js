@@ -40,10 +40,10 @@ function registrarUsuario() {
     usuariosRegistrados.push(nuevoUsuario);
 
     localStorage.setItem('nombreUsuario', nombre);
-    localStorage.setItem('correo',correo);
+    localStorage.setItem('correo', correo);
     localStorage.setItem('usuarios', JSON.stringify(usuariosRegistrados));
 
-    window.location.href = './InicioSesion.html';
+    window.location.pathname = urlInicioSesionIniciada;
 }
 
 function iniciarSesion() {
@@ -64,8 +64,10 @@ function iniciarSesion() {
 
     if (usuarioValido) {
         localStorage.setItem('nombreUsuario', usuarioValido.nombre);
-        localStorage.setItem('correo',usuarioValido.correo);
-        window.location.href = './InicioSesionIniciada.html';
+        localStorage.setItem('correo', usuarioValido.correo);
+        const urlInicioSesionIniciada = "{% url 'InicioSesionIniciada' %}/";
+        console.log(urlInicioSesionIniciada);
+        return(window.location.pathname = urlInicioSesionIniciada);
     } else {
         alert('Usuario o contraseña incorrectos');
     }
@@ -96,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
         function obtenerUsuarioPorNombre(nombreUsuario) {
             const usuariosRegistrados = JSON.parse(localStorage.getItem('usuarios')) || [];
             return usuariosRegistrados.find(usuario => usuario && usuario.nombre === nombreUsuario);
-       }
+        }
 
         function asignarValor(id, valor) {
             const elemento = document.getElementById(id);
@@ -113,28 +115,28 @@ document.addEventListener('DOMContentLoaded', function () {
         
             const usuarioExistente = usuariosRegistrados.find(usuario => usuario.correo === correoNuevo);
             if (usuarioExistente && usuarioExistente.nombre !== nombreUsuario) {
-            alert('Ya hay un usuario registrado con este correo electrónico.');
-            return;
-        }
+                alert('Ya hay un usuario registrado con este correo electrónico.');
+                return;
+            }
 
-        const indexUsuario = usuariosRegistrados.findIndex(usuario => usuario.nombre === nombreUsuario);
+            const indexUsuario = usuariosRegistrados.findIndex(usuario => usuario.nombre === nombreUsuario);
 
-        if (indexUsuario !== -1) {
-            usuariosRegistrados[indexUsuario].nombre = document.getElementById('nombre').value;
-            usuariosRegistrados[indexUsuario].apellido = document.getElementById('apellido').value;
-            usuariosRegistrados[indexUsuario].correo = correoNuevo;
-            usuariosRegistrados[indexUsuario].telefono = document.getElementById('telefono').value;
-            usuariosRegistrados[indexUsuario].direccion = document.getElementById('direccion').value;
-            usuariosRegistrados[indexUsuario].contra = document.getElementById('NuevaContra').value;
+            if (indexUsuario !== -1) {
+                usuariosRegistrados[indexUsuario].nombre = document.getElementById('nombre').value;
+                usuariosRegistrados[indexUsuario].apellido = document.getElementById('apellido').value;
+                usuariosRegistrados[indexUsuario].correo = correoNuevo;
+                usuariosRegistrados[indexUsuario].telefono = document.getElementById('telefono').value;
+                usuariosRegistrados[indexUsuario].direccion = document.getElementById('direccion').value;
+                usuariosRegistrados[indexUsuario].contra = document.getElementById('NuevaContra').value;
 
-            localStorage.setItem('usuarios', JSON.stringify(usuariosRegistrados));
+                localStorage.setItem('usuarios', JSON.stringify(usuariosRegistrados));
 
-            localStorage.setItem('nombreUsuario', usuariosRegistrados[indexUsuario].nombre);
-            
-            window.location.href = './InicioSesionIniciada.html';
-        } else {
-            console.error('Usuario no encontrado');
-        }
+                localStorage.setItem('nombreUsuario', usuariosRegistrados[indexUsuario].nombre);
+                
+                window.location.href = urlInicioSesionIniciada;
+            } else {
+                console.error('Usuario no encontrado');
+            }
         }
     }    
 });
