@@ -4,14 +4,14 @@ from . import views
 
 urlpatterns = [
     path('busqueda/', views.busqueda, name='busqueda'),
-    '''path('carrito/', carrito, name='carrito'),
-    path('configU/', configU, name='configU'),
-    path('historialCompra/', historialCompra, name='historialCompra'),
-    path('Inicio/', inicio, name='Inicio'),
-    path('InicioSesion/', InicioSesion, name='InicioSesion'),
-    path('InicioSesionIniciada/', InicioSesionIniciada, name='InicioSesionIniciada'),
-    path('Registro/', Registro, name='Registro'),
-    path('ver-productoCASCOSNEGROS/', verCascos, name='verCascos'),
-    path('ver-productoREDMI/', verRedmi, name='verRedmi'),
-    path('ver-productoSKULLCANDY/', verSkull, name='verSkull')'''
+    path('carrito/', views.carrito, name='carrito'),
+    path('configU/', views.configU, name='configU'),
+    path('historialCompra/', views.historialCompra, name='historialCompra'),
+    path('Inicio/', views.inicio, name='Inicio'),
+    path('InicioSesion/', views.InicioSesion, name='InicioSesion'),
+    path('InicioSesionIniciada/', views.InicioSesionIniciada, name='InicioSesionIniciada'),
+    path('Registro/', views.Registro, name='Registro'),
+    path('ver-productoCASCOSNEGROS/', views.verCascos, name='verCascos'),
+    path('ver-productoREDMI/', views.verRedmi, name='verRedmi'),
+    path('ver-productoSKULLCANDY/', views.verSkull, name='verSkull')
 ]

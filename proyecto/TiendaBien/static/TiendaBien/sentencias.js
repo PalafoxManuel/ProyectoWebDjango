@@ -43,7 +43,7 @@ function registrarUsuario() {
     localStorage.setItem('correo', correo);
     localStorage.setItem('usuarios', JSON.stringify(usuariosRegistrados));
 
-    window.location.pathname = urlInicioSesionIniciada;
+    window.location.pathname = "{% url 'TiendaBien/InicioSesionIniciada' %}";
 }
 
 function iniciarSesion() {
@@ -65,9 +65,7 @@ function iniciarSesion() {
     if (usuarioValido) {
         localStorage.setItem('nombreUsuario', usuarioValido.nombre);
         localStorage.setItem('correo', usuarioValido.correo);
-        const urlInicioSesionIniciada = "{% url 'InicioSesionIniciada' %}/";
-        console.log(urlInicioSesionIniciada);
-        return(window.location.pathname = urlInicioSesionIniciada);
+        return(window.location.pathname = "{% url 'TiendaBien/InicioSesionIniciada' %}");
     } else {
         alert('Usuario o contraseña incorrectos');
     }
@@ -133,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 localStorage.setItem('nombreUsuario', usuariosRegistrados[indexUsuario].nombre);
                 
-                window.location.href = urlInicioSesionIniciada;
+                window.location.href = "{% url 'TiendaBien/InicioSesionIniciada' %}";
             } else {
                 console.error('Usuario no encontrado');
             }

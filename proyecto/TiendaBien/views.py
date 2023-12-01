@@ -5,35 +5,46 @@ def busqueda(request):
     context = {}
     return render(request, 'TiendaBien/busqueda.html', context)
 
-'''def carrito(request):
-    return render(request, 'carrito.html')
+def carrito(request):
+    context = {}
+    return render(request, 'TiendaBien/carrito.html', context)
 
 def configU(request):
-    return render(request, 'configU.html')
+    context={}
+    return render(request, 'TiendaBien/configU.html', context)
 
 def historialCompra(request):
-    return render(request, 'historialCompra.html')
+    context={}
+    return render(request, 'TiendaBien/historialCompra.html', context)
 
 def inicio(request):
-    return render(request, 'Inicio.html')
+    context={}
+    return render(request, 'TiendaBien/Inicio.html', context)
 
 def InicioSesion(request):
-    return render(request, 'InicioSesion.html')
+    context={}
+    return render(request, 'TiendaBien/InicioSesion.html', context)
 
 def InicioSesionIniciada(request):
-    return render(request, 'InicioSesionIniciada.html')
+    context={}
+    return render(request, 'TiendaBien/InicioSesionIniciada.html', context)
 
 def Registro(request):
-    return render(request, 'Registro.html')
+    context={}
+    return render(request, 'TiendaBien/Registro.html', context)
 
 def verCascos(request):
-    return render(request, 'ver-productoCASCOSNEGROS.html')
+    context={}
+    return render(request, 'TiendaBien/ver-productoCASCOSNEGROS.html', context)
 
 def verRedmi(request):
-    return render(request, 'ver-productoREDMI.html')
+    context={}
+    return render(request, 'TiendaBien/ver-productoREDMI.html', context)
 
 def verSkull(request):
-    return render(request, 'ver-productoSKULLCANDY.html')
+    context={}
+    return render(request, 'TiendaBien/ver-productoSKULLCANDY.html', context)
 
 def InicioSesion(request):
-    return render(request, 'InicioSesion.html')'''
+    context={}
+    return render(request, 'TiendaBien/InicioSesion.html', context)

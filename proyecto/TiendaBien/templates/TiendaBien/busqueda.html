@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FoxShop</title>
-    <link rel="stylesheet" href="{% static 'busqueda-style.css' %}">
+    <link rel="stylesheet" href="{% static 'TiendaBien/busqueda-style.css' %}">
     <script src="{% static 'sentencias.js' %}"></script>
 </head>
 
@@ -14,7 +14,7 @@
         <div class="Buscador">
             <div class="logo">
                 <a href="{% url 'InicioSesionIniciada' %}">
-                    <img class="icono" src="{% static 'imagenes/icon.png' %}">
+                    <img class="icono" src="{% static 'TiendaBien/imagenes/icon.png' %}">
                 </a>
                 <a href="{% url 'InicioSesionIniciada' %}">
                     <label>FOXSHOP</label>
@@ -23,18 +23,18 @@
             <div class="search">
                 <div class="categorias">
                     <label>Categorias</label>
-                    <img class="flecha" src="{% static 'imagenes/flecha.png' %}">
+                    <img class="flecha" src="{% static 'TiendaBien/imagenes/flecha.png' %}">
                 </div>
                 <div class="buscar">
                     <input id="input1" type="text" placeholder="Buscar en foxshop.com">
                 </div>
                 <a href="{% url 'busqueda' %}">
-                    <img class="lupa" src="{% static 'imagenes/lupa.jpg' %}">
+                    <img class="lupa" src="{% static 'TiendaBien/imagenes/lupa.jpg' %}">
                 </a>
             </div>
             <input type="checkbox" class="hidden-checkbox">
             <div class="usuario">
-                <img class="user" src="{% static 'imagenes/user.png' %}">
+                <img class="user" src="{% static 'TiendaBien/imagenes/user.png' %}">
                 <label class="bienvenidoTexto">Bienvenido,</label>
                 <label id="nombreUsuario" class="nombreUsuario" for="menuCheckbox">Name</label>
                 <input type="checkbox" id="menuCheckbox" class="hidden-checkbox">
@@ -47,7 +47,7 @@
             </div>
             <div class="compra">
                 <a href="{% url 'carrito' %}">
-                    <img src="{% static 'imagenes/carrito.png' %}">
+                    <img src="{% static 'TiendaBien/imagenes/carrito.png' %}">
                     <div class="texto">
                         <label>Carrito</label>
                     </div>
@@ -63,7 +63,7 @@
                 </div>
                 <div>
                     <label class="lomas">Lo mas vendido</label>
-                    <img class="star" src="{% static 'imagenes/estrella.png' %}">
+                    <img class="star" src="{% static 'TiendaBien/imagenes/estrella.png' %}">
                 </div>
                 <div>
                     <label>Promociones</label>
@@ -108,55 +108,55 @@
                         <li>
                             <a href="">
                                 <div>
-                                    <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
-                                    <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
-                                    <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
-                                    <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
-                                    <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
+                                    <img src="{%static 'TiendaBien/img/orange-star.png'%}" alt="" height="15px">
+                                    <img src="{%static 'TiendaBien/img/orange-star.png'%}" alt="" height="15px">
+                                    <img src="{%static 'TiendaBien/img/orange-star.png'%}" alt="" height="15px">
+                                    <img src="{%static 'TiendaBien/img/orange-star.png'%}" alt="" height="15px">
+                                    <img src="{%static 'TiendaBien/img/orange-star.png'%}" alt="" height="15px">
                                 </div>
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <div>
-                                    <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
-                                    <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
-                                    <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
-                                    <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
-                                    <img src="{% static 'img/gray-star.png'%}" alt="" height="15px">
+                                    <img src="{%static 'TiendaBien/img/orange-star.png'%}" alt="" height="15px">
+                                    <img src="{%static 'TiendaBien/img/orange-star.png'%}" alt="" height="15px">
+                                    <img src="{%static 'TiendaBien/img/orange-star.png'%}" alt="" height="15px">
+                                    <img src="{%static 'TiendaBien/img/orange-star.png'%}" alt="" height="15px">
+                                    <img src="{% static 'TiendaBien/img/gray-star.png'%}" alt="" height="15px">
                                 </div>
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <div>
-                                    <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
-                                    <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
-                                    <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
-                                    <img src="{% static 'img/gray-star.png'%}" alt="" height="15px">
-                                    <img src="{% static 'img/gray-star.png'%}" alt="" height="15px">
+                                    <img src="{%static 'TiendaBien/img/orange-star.png'%}" alt="" height="15px">
+                                    <img src="{%static 'TiendaBien/img/orange-star.png'%}" alt="" height="15px">
+                                    <img src="{%static 'TiendaBien/img/orange-star.png'%}" alt="" height="15px">
+                                    <img src="{% static 'TiendaBien/img/gray-star.png'%}" alt="" height="15px">
+                                    <img src="{% static 'TiendaBien/img/gray-star.png'%}" alt="" height="15px">
                                 </div>
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <div>
-                                    <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
-                                    <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
-                                    <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
-                                    <img src="{% static 'img/gray-star.png'%}" alt="" height="15px">
-                                    <img src="{% static 'img/gray-star.png'%}" alt="" height="15px">
+                                    <img src="{%static 'TiendaBien/img/orange-star.png'%}" alt="" height="15px">
+                                    <img src="{%static 'TiendaBien/img/orange-star.png'%}" alt="" height="15px">
+                                    <img src="{%static 'TiendaBien/img/orange-star.png'%}" alt="" height="15px">
+                                    <img src="{% static 'TiendaBien/img/gray-star.png'%}" alt="" height="15px">
+                                    <img src="{% static 'TiendaBien/img/gray-star.png'%}" alt="" height="15px">
                                 </div>
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <div>
-                                    <img src="{%static 'img/orange-star.png'%}" alt="" height="15px">
-                                    <img src="{% static 'img/gray-star.png'%}" alt="" height="15px">
-                                    <img src="{% static 'img/gray-star.png'%}" alt="" height="15px">
-                                    <img src="{% static 'img/gray-star.png'%}" alt="" height="15px">
-                                    <img src="{% static 'img/gray-star.png'%}" alt="" height="15px">
+                                    <img src="{%static 'TiendaBien/img/orange-star.png'%}" alt="" height="15px">
+                                    <img src="{% static 'TiendaBien/img/gray-star.png'%}" alt="" height="15px">
+                                    <img src="{% static 'TiendaBien/img/gray-star.png'%}" alt="" height="15px">
+                                    <img src="{% static 'TiendaBien/img/gray-star.png'%}" alt="" height="15px">
+                                    <img src="{% static 'TiendaBien/img/gray-star.png'%}" alt="" height="15px">
                                 </div>
                             </a>
                         </li>
