@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PaginaInicio</title>
-    <link rel="stylesheet" href="{% static 'carrito.css' %}">
-    <script src="{% static './sentencias.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'TiendaBien/carrito.css' %}">
+    <script src="{% static 'TiendaBien/sentencias.js' %}"></script>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
         <div class="Buscador">
             <div class="logo">
                 <a href="{% url 'InicioSesionIniciada' %}">
-                    <img class="icono" src="{% static 'imagenes/icon.png' %}">
+                    <img class="icono" src="{% static 'TiendaBien/imagenes/icon.png' %}">
                 </a>
                 <a href="{% url 'InicioSesionIniciada' %}">
                     <label>FOXSHOP</label>
@@ -24,18 +24,18 @@
             <div class="search">
                 <div class="categorias">
                     <label>Categorias</label>
-                    <img class="flecha" src="{% static 'imagenes/flecha.png' %}">
+                    <img class="flecha" src="{% static 'TiendaBien/imagenes/flecha.png' %}">
                 </div>
                 <div class="buscar">
                     <input id="input1" type="text" placeholder="Buscar en foxshop.com">
                 </div>
                 <a href="{% url 'busqueda' %}">
-                    <img class="lupa" src="{% static './imagenes/lupa.jpg' %}">
+                    <img class="lupa" src="{% static 'TiendaBien/imagenes/lupa.jpg' %}">
                 </a>
             </div>
             <input type="checkbox" class="hidden-checkbox">
             <div class="usuario">
-                <img class="user" src="{% static './imagenes/user.png' %}">
+                <img class="user" src="{% static 'TiendaBien/imagenes/user.png' %}">
                 <label class="bienvenidoTexto">Bienvenido,</label>
                 <label id="nombreUsuario" class="nombreUsuario" for="menuCheckbox">Manuel P.</label>
                 <input type="checkbox" id="menuCheckbox" class="hidden-checkbox">
@@ -48,7 +48,7 @@
             </div>
             <div class="compra">
                 <a href="{% url 'carrito' %}">
-                    <img src="{% static './imagenes/carrito.png' %}">
+                    <img src="{% static 'TiendaBien/imagenes/carrito.png' %}">
                     <div class="texto">
                         <label>Carrito</label>
                 </a>
@@ -64,7 +64,7 @@
                 </div>
                 <div>
                     <label class="lomas">Lo mas vendido</label>
-                    <img class="star" src="{% static './imagenes/estrella.png' %}">
+                    <img class="star" src="{% static 'TiendaBien/imagenes/estrella.png' %}">
                 </div>
                 <div>
                     <label>Promociones</label>
@@ -102,7 +102,7 @@
                     <div class="producto" style="border-top: 4px solid #312F48; gap: 40%">
                         <div>
                             <div style="margin-top:30%;">
-                                <img src="{% static 'img/return.png' %}" alt="" width="15px">
+                                <img src="{% static 'TiendaBien/img/return.png' %}" alt="" width="15px">
                                 <a href="{% url 'InicioSesionIniciada' %}" style="color: #fff;">Continuar comprando</a>
                             </div>
                         </div>
@@ -124,20 +124,20 @@
                         </div>
                         <p>Método de pago:</p>
                         <div class="tarjeta">
-                            <input type='radio' name="gender"> <img src="{% static 'imagenes/tcredito.png' %}"
+                            <input type='radio' name="gender"> <img src="{% static 'TiendaBien/imagenes/tcredito.png' %}"
                                 class="imgtarjeta">Tarjeta
                         </div>
                         <div class="paypal">
-                            <input type='radio' name="gender"> <img src="{% static 'imagenes/paypal.png' %}"
+                            <input type='radio' name="gender"> <img src="{% static 'TiendaBien/imagenes/paypal.png' %}"
                                 class="imgpaypal">Paypal
                         </div>
                         <p style="margin-top:2vh; margin-bottom:2vh;">Nombre en la tarjeta</p>
                         <p style="font-weight: lighter;">MANUEL EDUARDO PALAFOX GARCIA</p>
                         <p style="margin-top:2vh;">Numero de tarjeta</p>
                         <div class="puntosblanco">
-                            <img src="{% static 'imagenes/puntos.png' %}" class="puntosblancos">
-                            <img src="{% static 'imagenes/puntos.png' %}" class="puntosblancos">
-                            <img src="{% static 'imagenes/puntos.png' %}" class="puntosblancos">
+                            <img src="{% static 'TiendaBien/imagenes/puntos.png' %}" class="puntosblancos">
+                            <img src="{% static 'TiendaBien/imagenes/puntos.png' %}" class="puntosblancos">
+                            <img src="{% static 'TiendaBien/imagenes/puntos.png' %}" class="puntosblancos">
                             <a style="margin-top:2vh; margin-bottom:2vh;">2153</a>
                         </div>
                         <div class="fechaexp">
@@ -154,7 +154,7 @@
                         </div>
                         <div style="display: flex; justify-content:center; margin-top:9%; align-items:center;">
                             <button class="boton-personalizado2" onclick="realizarCompra()"> <img
-                                    src="{% static 'imagenes/mandadoicon.png' %}" style="width: 5%;"> <a>Realizar
+                                    src="{% static 'TiendaBien/imagenes/mandadoicon.png' %}" style="width: 5%;"> <a>Realizar
                                     compra</a> </button>
                         </div>
                     </div>
@@ -174,8 +174,7 @@
         var usuariosRegistrados = JSON.parse(localStorage.getItem('usuarios')) || [];
 
         var usuarioActual = usuariosRegistrados.find(usuario => usuario.correo === localStorage.getItem('correo'));
-
-
+        console.log(usuarioActual);
         var productos = usuarioActual.carrito;
 
         function refreshDatosLocalStorage() {

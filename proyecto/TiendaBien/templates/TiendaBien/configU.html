@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PaginaInicio</title>
-    <link rel="stylesheet" href="{% static 'configU.css' %}">
-    <script src="{% static 'sentencias.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'TiendaBien/configU.css' %}">
+    <script src="{% static 'TiendaBien/sentencias.js' %}"></script>
 </head>
 <body>
     <div class="FondoPr">
@@ -15,7 +15,7 @@
             <div class="Buscador">
                 <div class="logo">
                     <a href="{% url 'InicioSesionIniciada' %}">
-                        <img class="icono" src="{% static 'imagenes/icon.png' %}">
+                        <img class="icono" src="{% static 'TiendaBien/imagenes/icon.png' %}">
                     </a>
                     <a href="{% url 'InicioSesionIniciada' %}">
                         <label>FOXSHOP</label>
@@ -24,18 +24,18 @@
                 <div class="search">
                     <div class="categorias">
                         <label>Categorias</label>
-                        <img class="flecha" src="{% static 'imagenes/flecha.png' %}">
+                        <img class="flecha" src="{% static 'TiendaBien/imagenes/flecha.png' %}">
                     </div>
                     <div class="buscar">
                         <input id="input1" type="text" placeholder="Buscar en foxshop.com">
                     </div>
                     <a href="{% url 'busqueda' %}">
-                        <img class="lupa" src="{% static 'imagenes/lupa.jpg' %}">
+                        <img class="lupa" src="{% static 'TiendaBien/imagenes/lupa.jpg' %}">
                     </a>
                 </div>
                 <input type="checkbox" class="hidden-checkbox">
                 <div class="usuario">
-                    <img class="user" src="{% static 'imagenes/user.png' %}">
+                    <img class="user" src="{% static 'TiendaBien/imagenes/user.png' %}">
                     <label class="bienvenidoTexto">Bienvenido,</label>
                     <label id="nombreUsuario" class="nombreUsuario" for="menuCheckbox">name</label>
                     <input type="checkbox" id="menuCheckbox" class="hidden-checkbox">
@@ -48,7 +48,7 @@
                 </div>            
                 <div class="compra">
                     <a href="{% url 'carrito' %}">
-                        <img src="{% static 'imagenes/carrito.png' %}">
+                        <img src="{% static 'TiendaBien/imagenes/carrito.png' %}">
                         <div class="texto">
                             <label>Carrito</label>
                     </a>
@@ -64,7 +64,7 @@
                     </div>
                     <div>
                         <label class="lomas">Lo mas vendido</label>
-                        <img class="star" src="{% static 'imagenes/estrella.png' %}">
+                        <img class="star" src="{% static 'TiendaBien/imagenes/estrella.png' %}">
                     </div>
                     <div>
                         <label>Promociones</label>
@@ -137,6 +137,5 @@
         </div>
 
     </div>
-    <script src="{% static 'sentencias.js' %}"></script>
 </body>
 </html>

@@ -13,7 +13,7 @@
     <div class="FondoPr">
         <div class="Buscador">
             <div class="logo">
-                <a href="{% url 'TiendaBien/InicioSesionIniciada' %}">
+                <a href="{% url 'InicioSesionIniciada' %}">
                     <img class="icono" src="{% static 'TiendaBien/imagenes/icon.png' %}">
                 </a>
                 <a href="{% url 'InicioSesionIniciada' %}">
@@ -23,16 +23,16 @@
             <div class="search">
                 <div class="categorias">
                     <label>Categorias</label>
-                    <img class="flecha" src="{% static 'imagenes/flecha.png' %}">
+                    <img class="flecha" src="{% static 'TiendaBien/imagenes/flecha.png' %}">
                 </div>
                 <div class="buscar">
                     <input id="input1" type="text" placeholder="Buscar en foxshop.com">
                 </div>
-                <a href="{% url 'busqueda' %}"><img class="lupa" src="{% static 'imagenes/lupa.jpg' %}"></a>
+                <a href="{% url 'busqueda' %}"><img class="lupa" src="{% static 'TiendaBien/imagenes/lupa.jpg' %}"></a>
             </div>
             <input type="checkbox" class="hidden-checkbox">
             <div class="usuario">
-                <img class="user" src="{% static 'imagenes/user.png' %}">
+                <img class="user" src="{% static 'TiendaBien/imagenes/user.png' %}">
                 <label class="bienvenidoTexto">Bienvenido,</label>
                 <label id="nombreUsuario" class="nombreUsuario" for="menuCheckbox">Name</label>
                 <input type="checkbox" id="menuCheckbox" class="hidden-checkbox">
@@ -44,7 +44,7 @@
                 </div>
             </div>            
             <div class="compra">
-                <img src="{% static 'imagenes/carrito.png' %}" href="{% url 'carrito' %}">
+                <img src="{% static 'TiendaBien/imagenes/carrito.png' %}" href="{% url 'carrito' %}">
                 <div class="texto">
                     <a href="{% url 'carrito' %}"><label>Carrito</label></a>
                 </div>
@@ -59,7 +59,7 @@
                 </div>
                 <div>
                     <label class="lomas">Lo mas vendido</label>
-                    <img class="star" src="{% static 'imagenes/estrella.png' %}">
+                    <img class="star" src="{% static 'TiendaBien/imagenes/estrella.png' %}">
                 </div>
                 <div>
                     <label>Promociones</label>
@@ -83,43 +83,43 @@
         <div class="Principal">
             <div class="productos">
                 <div class="anuncio">
-                    <img src="{% static 'imagenes/anuncioimg.png' %}">
+                    <img src="{% static 'TiendaBien/imagenes/anuncioimg.png' %}">
                 </div>
                 <div class="parte1">
                     <div class="pc">
                         <label>Arma tu PC</label>
                         <div class="bomba">
-                            <img src="{% static 'imagenes/imgBomba.jpg' %}">
+                            <img src="{% static 'TiendaBien/imagenes/imgBomba.jpg' %}">
                             <label class="data">Asus Enfriamiento liquido</label>
                             <label class="precio">$3,578</label>
-                            <img class="putitos" style="max-width: 10%; height: auto;" src="{% static 'imagenes/1 circulo.png' %}">
+                            <img class="putitos" style="max-width: 10%; height: auto;" src="{% static 'TiendaBien/imagenes/1 circulo.png' %}">
                         </div>
                     </div>
                     <div class="verano">
                         <label>Para este verano</label>
                         <div class="ropa">
-                            <img src="{% static 'imagenes/gorro.png' %}">
+                            <img src="{% static 'TiendaBien/imagenes/gorro.png' %}">
                             <label class="data">CHARM Gorro de verano <br> extra holgado</label>
                             <label class="precio">$441</label>
-                            <img class="putitos" style="max-width: 10%; height: auto;" src="{% static 'imagenes/1 circulo.png' %}">
+                            <img class="putitos" style="max-width: 10%; height: auto;" src="{% static 'TiendaBien/imagenes/1 circulo.png' %}">
                         </div>
                     </div>
                     <div class="mascota">
                         <label>Mascotas</label>
                         <div class="perro">
-                            <img src="{% static 'imagenes/perro.jpg' %}">
+                            <img src="{% static 'TiendaBien/imagenes/perro.jpg' %}">
                             <label class="data">PEDIGREE High Protein Alimento <br> Húmedo para Perros Adultos Sabor <br> Res y Pollo 24 Sobres 85g c/u</label>
                             <label class="precio">$276</label>
-                            <img class="putitos" style="max-width: 10%; height: auto;" src="{% static 'imagenes/1 circulo.png' %}">
+                            <img class="putitos" style="max-width: 10%; height: auto;" src="{% static 'TiendaBien/imagenes/1 circulo.png' %}">
                         </div>
                     </div>
                     <div class="mex">
                         <label>Celebremos a Mexico</label>
                         <div class="tequila">
-                            <img src="{% static 'imagenes/tequiladonjulio.jpg' %}">
+                            <img src="{% static 'TiendaBien/imagenes/tequiladonjulio.jpg' %}">
                             <label class="data">Tequila Don Julio 70 Añejo <br> Cristalino 700 ml</label>
                             <label class="precio">$760</label>
-                            <img class="putitos" style="max-width: 10%; height: auto;" src="{% static 'imagenes/1 circulo.png' %}">
+                            <img class="putitos" style="max-width: 10%; height: auto;" src="{% static 'TiendaBien/imagenes/1 circulo.png' %}">
                         </div>
                     </div>
                 </div>
@@ -127,12 +127,12 @@
                     <div class="volver">
                         <label>Volver a comprar</label>
                         <div class="visto1">
-                            <img src="{% static 'imagenes/volverComprar.jpg' %}">
+                            <img src="{% static 'TiendaBien/imagenes/volverComprar.jpg' %}">
                             <div class="imagen">
-                                <img src="{% static 'imagenes/volverAuri.jpg' %}">
-                                <img src="{% static 'imagenes/volverRam.jpg' %}">
+                                <img src="{% static 'TiendaBien/imagenes/volverAuri.jpg' %}">
+                                <img src="{% static 'TiendaBien/imagenes/volverRam.jpg' %}">
                             </div>
-                            <img src="{% static 'imagenes/volverMoch.jpg' %}">
+                            <img src="{% static 'TiendaBien/imagenes/volverMoch.jpg' %}">
                         </div>
                         <div class="texto1">
                             <label>Ver más</label>
@@ -141,19 +141,19 @@
                     <div class="celu">
                         <label>Celulares</label>
                         <div class="celular1">
-                            <img src="{% static 'imagenes/samsnug.jpg' %}">
+                            <img src="{% static 'TiendaBien/imagenes/samsnug.jpg' %}">
                             <label class="data">SAMSUNG Galaxy A34 5G <br> 256GB Negro</label>
                             <label class="precio">$5,105</label>
-                            <img class="putitos" style="max-width: 10%; height: auto;" src="{% static 'imagenes/1 circulo.png' %}">
+                            <img class="putitos" style="max-width: 10%; height: auto;" src="{% static 'TiendaBien/imagenes/1 circulo.png' %}">
                         </div>
                     </div>
                     <div class="continua">
                         <label>Continúa donde lo dejaste</label>
                         <div class="continua1">
-                            <img src="{% static 'imagenes/grafica.jpg' %}">
+                            <img src="{% static 'TiendaBien/imagenes/grafica.jpg' %}">
                             <label class="data">GIGABYTE GeForce RTX 3060 <br> Ti Gaming OC 8G Tarjeta <br> gráfica, 8 GB 256 bits</label>
                             <label class="precio">$7,729</label>
-                            <img class="putitos" style="max-width: 10%; height: auto;" src="{% static 'imagenes/1 circulo.png' %}">
+                            <img class="putitos" style="max-width: 10%; height: auto;" src="{% static 'TiendaBien/imagenes/1 circulo.png' %}">
                         </div>
                     </div>
                 </div>

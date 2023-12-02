@@ -43,7 +43,10 @@ function registrarUsuario() {
     localStorage.setItem('correo', correo);
     localStorage.setItem('usuarios', JSON.stringify(usuariosRegistrados));
 
-    window.location.pathname = "{% url 'TiendaBien/InicioSesionIniciada' %}";
+    if(nuevoUsuario!=null){
+        return true;
+    }
+    //window.location.href = urlInicioSesionIniciada;
 }
 
 function iniciarSesion() {
@@ -65,7 +68,8 @@ function iniciarSesion() {
     if (usuarioValido) {
         localStorage.setItem('nombreUsuario', usuarioValido.nombre);
         localStorage.setItem('correo', usuarioValido.correo);
-        return(window.location.pathname = "{% url 'TiendaBien/InicioSesionIniciada' %}");
+        return true;
+        //window.location.href = urlInicioSesionIniciada;
     } else {
         alert('Usuario o contraseña incorrectos');
     }
@@ -75,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const paginaActual = window.location.pathname;
 
-    if (paginaActual.includes('configU.html')) {
+    if (paginaActual.includes('configU')) {
         const nombreUsuario = localStorage.getItem('nombreUsuario');
         const usuario = obtenerUsuarioPorNombre(nombreUsuario);
 
@@ -125,13 +129,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 usuariosRegistrados[indexUsuario].correo = correoNuevo;
                 usuariosRegistrados[indexUsuario].telefono = document.getElementById('telefono').value;
                 usuariosRegistrados[indexUsuario].direccion = document.getElementById('direccion').value;
-                usuariosRegistrados[indexUsuario].contra = document.getElementById('NuevaContra').value;
+
+                if(document.getElementById('NuevaContra').value===''){
+
+                }else{
+                    usuariosRegistrados[indexUsuario].contra = document.getElementById('NuevaContra').value;
+                }
 
                 localStorage.setItem('usuarios', JSON.stringify(usuariosRegistrados));
 
                 localStorage.setItem('nombreUsuario', usuariosRegistrados[indexUsuario].nombre);
                 
-                window.location.href = "{% url 'TiendaBien/InicioSesionIniciada' %}";
+                window.location.reload();
+                alert("Cambios guardados");
             } else {
                 console.error('Usuario no encontrado');
             }

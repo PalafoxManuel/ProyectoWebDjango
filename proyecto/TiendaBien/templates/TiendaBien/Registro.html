@@ -6,22 +6,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarse</title>
-    <link rel="stylesheet" href="{% static 'RegistroStyle.css' %}">
-    <script src="{% static 'sentencias.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'TiendaBien/RegistroStyle.css' %}">
+    <script src="{% static 'TiendaBien/sentencias.js' %}"></script>
 </head>
 <body>
     <div class="FondoPr">
         <div class="Buscador">
             <div class="logo">  
                 <a href="{% url 'Inicio' %}">
-                    <img class="icono" src="{% static 'imagenes/icon.png' %}">
+                    <img class="icono" src="{% static 'TiendaBien/imagenes/icon.png' %}">
                     <label>FOXSHOP</label>
                 </a>
             </div>
         </div>
         <div class="Principal">
             <div class="InicioSesion">
-                <img src="{% static 'imagenes/userInicio.png' %}">
+                <img src="{% static 'TiendaBien/imagenes/userInicio.png' %}">
                 <label>REGISTRO</label>
             </div>
             <div class="inputs">
@@ -65,7 +65,14 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Asociar la función `registrarUsuario` al clic del botón de registro
             const botonRegistro = document.querySelector('.registro');
-            botonRegistro.addEventListener('click', registrarUsuario);
+            botonRegistro.addEventListener('click', function(event){
+                event.preventDefault();
+
+                if(registrarUsuario()){
+                    window.location.href = "{% url 'InicioSesionIniciada' %}" ;
+                }
+                
+            })
         });
     </script>
 </body>
