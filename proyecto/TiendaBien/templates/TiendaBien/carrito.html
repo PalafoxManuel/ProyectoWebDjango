@@ -153,9 +153,8 @@
                             <a style=" margin-right: 2vh;">∨</a>
                         </div>
                         <div style="display: flex; justify-content:center; margin-top:9%; align-items:center;">
-                            <button class="boton-personalizado2" onclick="realizarCompra()"> <img
-                                    src="{% static 'TiendaBien/imagenes/mandadoicon.png' %}" style="width: 5%;"> <a>Realizar
-                                    compra</a> </button>
+                            <button class="boton-personalizado2" onclick="realizarCompra()"> <img src="{% static 'TiendaBien/imagenes/mandadoicon.png' %}" style="width: 5%;"> 
+                                <a>Realizar compra</a> </button>
                         </div>
                     </div>
                 </div>
@@ -223,7 +222,6 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             refreshDatosLocalStorage();
-
             mostrarProductos();
             actualizarSubtotalYTotal();
         });
@@ -370,12 +368,16 @@
         }
 
         function realizarCompra() {
+
             refreshDatosLocalStorage();
+
             const carritoVacio = usuarioActual.carrito.length === 0; // Verificar si el carrito está vacío
+            
             if (carritoVacio) {
                 alert('El carrito está vacío. Agrega productos antes de realizar la compra.');
                 return; // Salir de la función si el carrito está vacío
             }
+            
 
             const fechaActual = new Date();
 
@@ -396,7 +398,7 @@
             location.reload();
         }
         // Añadir el event listener al botón para escuchar el clic
-        botonCompra.addEventListener('click', realizarCompra);
+        // botonCompra.addEventListener('click', realizarCompra);
 
     </script>
 </body>

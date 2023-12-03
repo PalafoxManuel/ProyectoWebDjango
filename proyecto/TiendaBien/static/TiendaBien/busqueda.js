@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //FUNCIONALIDAD AGREGAR CARRITO
     const btnAgregarCarrito1 = document.getElementById('CASCOSNEGROS');
     btnAgregarCarrito1.addEventListener('click', function(){
-        const urlImagen = "static/TiendaBien/img/audifonos/audSony.png";
+        const urlImagen = "../../static/TiendaBien/img/audifonos/audSony.png";
         const nombreProducto = "Audífonos Inalámbricos Wh-ch720n Color Negro";
         const precio = 2293.00;
     
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const btnAgregarCarrito2 = document.getElementById('REDMI');
     btnAgregarCarrito2.addEventListener('click', function(){
-        const urlImagen = "{% static 'TiendaBien/img/audifonos/audXiaomi.png' %}";
+        const urlImagen = "../../static/TiendaBien/img/audifonos/audXiaomi.png";
         const nombreProducto = "Xiaomi 36103 Audifonos Inalámbircos Redmi Buds 3 Lite";
         const precio = 260.00;
     
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const btnAgregarCarrito3 = document.getElementById('SKULLCANDY');
     btnAgregarCarrito3.addEventListener('click', function(){
-        const urlImagen = "{% static 'TiendaBien/img/audifonos/audSkull.png' %}";
+        const urlImagen = "../../static/TiendaBien/img/audifonos/audSkull.png";
         const nombreProducto = "SKULLCANDY Audífonos Alámbricos Ink d+ Negro IN Ear";
         const precio = 249.50;
     
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //FUNCIONALIDAD AGREGAR CARRITO Y REDIRECCIONAR A PÁGINA DEL CARRITO
     const btnComprar1 = document.querySelector('#compraCASCOSNEGROS');
     btnComprar1.addEventListener('click', function () {
-        const urlImagen = "static/TiendaBien/img/audifonos/audSony.png";
+        const urlImagen = "../../static/TiendaBien/img/audifonos/audSony.png";
         const nombreProducto = "Audífonos Inalámbricos Wh-ch720n Color Negro";
         const precio = 2293.00;
 
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const btnComprar2 = document.querySelector('#compraREDMI');
     btnComprar2.addEventListener('click', function () {
-        const urlImagen = "{% static 'TiendaBien/img/audifonos/audXiaomi.png' %}";
+        const urlImagen = "../../static/TiendaBien/img/audifonos/audXiaomi.png";
         const nombreProducto = "Xiaomi 36103 Audífonos Inalámbircos Redmi Buds 3 Lite";
         const precio = 260.00;
 
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const btnComprar3 = document.querySelector('#compraSKULLCANDY');
     btnComprar3.addEventListener('click', function () {
-        const urlImagen = "{% static 'TiendaBien/img/audifonos/audSkull.png' %}";
+        const urlImagen = "../../static/TiendaBien/img/audifonos/audSkull.png";
         const nombreProducto = "SKULLCANDY Audífonos Alámbricos Ink d+ Negro IN Ear";
         const precio = 249.50;
 
