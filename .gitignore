@@ -1,0 +1,5 @@
+#ARCHIVO DE ACCESOS A BD IGNORADO
+proyecto/.env
+
+#CARPETA VENV IGNORADA
+.venv/
