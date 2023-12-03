@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FoxShop</title>
     <link rel="stylesheet" href="{% static 'TiendaBien/busqueda-style.css' %}">
-    <script src="{% static 'sentencias.js' %}"></script>
+    <script src="{% static 'TiendaBien/sentencias.js' %}"></script>
 </head>
 
 <body>
@@ -247,7 +247,7 @@
                         </div>
                         <div class="btn-p">
                             <div>
-                                <form action="{% static 'ver-productoCASCOSNEGROS.html' %}" class="formulario">
+                                <form action="{% url 'verCascos' %}" class="formulario">
                                     <button type="submit">
                                         <img src="{% static 'TiendaBien/img/ver.png' %}" alt="" height="20px"> Ver producto
                                     </button>
@@ -260,7 +260,7 @@
                             </div>
                         </div>
                         <div class="btn-buy">
-                            <a href="{% static './carrito.html' %}">
+                            <a href="{% url 'carrito' %}">
                                 <button id="compraCASCOSNEGROS"><img src="{% static 'TiendaBien/img/buy.png' %}" alt=""
                                         height="35px">Comprar</button>
                             </a>
@@ -295,7 +295,7 @@
                         </div>
                         <div class="btn-p">
                             <div>
-                                <form action="{% static 'ver-productoREDMI.html' %}" class="formulario">
+                                <form action="{% url 'verRedmi' %}" class="formulario">
                                     <button type="submit">
                                         <img src="{% static 'TiendaBien/img/ver.png' %}" alt="" height="20px"> Ver producto
                                     </button>
@@ -308,7 +308,7 @@
                             </div>
                         </div>
                         <div class="btn-buy">
-                            <a href="{% static './carrito.html' %}">
+                            <a href="{% url 'carrito' %}">
                                 <button id="compraREDMI"><img src="{% static 'TiendaBien/img/buy.png' %}" alt=""
                                         height="35px">Comprar</button>
                             </a>
@@ -343,7 +343,7 @@
                         </div>
                         <div class="btn-p">
                             <div>
-                                <form action="{% static 'ver-productoSKULLCANDY.html' %}" class="formulario">
+                                <form action="{% url 'verSkull' %}" class="formulario">
                                     <button type="submit">
                                         <img src="{% static 'TiendaBien/img/ver.png' %}" alt="" height="20px"> Ver producto
                                     </button>
@@ -356,7 +356,7 @@
                             </div>
                         </div>
                         <div class="btn-buy">
-                            <a href="{% static './carrito.html' %}">
+                            <a href="{% url 'carrito' %}">
                                 <button id="compraSKULLCANDY"><img src="{% static 'TiendaBien/img/buy.png' %}" alt=""
                                         height="35px">Comprar</button>
                             </a>
@@ -367,6 +367,6 @@
         </div>
 
     </main>
+    <script src="{% static 'TiendaBien/busqueda.js' %}"></script>
 </body>
-
 </html>
