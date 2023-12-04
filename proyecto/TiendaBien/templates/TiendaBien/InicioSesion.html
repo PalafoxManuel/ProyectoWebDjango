@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesion</title>
     <link rel="stylesheet" href="{% static 'TiendaBien/inicioSesionStyle.css' %}">
-    <script src="{% static 'TiendaBien/sentencias.js' %}"></script>
+    {% comment %} <script src="{% static 'TiendaBien/sentencias.js' %}"></script> {% endcomment %}
 </head>
 
 <body>
@@ -26,44 +26,39 @@
                 <img src="{% static 'TiendaBien/imagenes/userInicio.png' %}">
                 <label>INICIAR SESION</label>
             </div>
-            <div class="inputs">
-                <label for="usuario">Ingrese su correo</label>
-                <input class="inusuario" type="text" id="usuario" name="usuario" required><br><br>
+            <form action="" method="post">  {% csrf_token %}
+                <div class="inputs">
 
-                <label for="contrasena">Ingrese su contraseña:</label>
-                <input class="incontra" type="password" id="contrasena" name="contrasena" required>
-                <div class="label2">
-                    <input type="checkbox" id="recuerdame" name="recuerdame">
-                    <label for="recuerdame">Recuérdame</label>
-                    <label class="olvide">Olvidé mi contraseña</label>
-                </div>
-                <div class="boton">
-                    <input type="submit" value="Ingresar">
-                </div>
-                <div class="label3">
-                    <label>¿Aún no tienes cuenta?</label>
-                    <div class="click">
-                        <a href="{% url 'Registro' %}">
-                            <label>Click aquí</label>
-                        </a>
+
+                    <label for="usuario">Ingrese su correo</label>
+                    <input class="inusuario" type="text" id="usuario" name="correo" required><br><br>
+
+                    <label for="contrasena">Ingrese su contraseña:</label>
+                    <input class="incontra" type="password" id="contrasena" name="contrasena" required>
+                    
+                    
+                    <div class="label2">
+                        <input type="checkbox" id="recuerdame" name="recuerdame">
+                        <label for="recuerdame">Recuérdame</label>
+                        <label class="olvide">Olvidé mi contraseña</label>
+                    </div>
+                    
+                    <div class="boton">
+                        <input type="submit" value="Ingresar">
+                    </div>
+
+                    <div class="label3">
+                        <label>¿Aún no tienes cuenta?</label>
+                        <div class="click">
+                            <a href="{% url 'Registro' %}">
+                                <label>Click aquí</label>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const urlInicioSesionIniciada = "{% url 'InicioSesionIniciada' %}";
-            const botonIngresar = document.querySelector('.boton input[type="submit"]');
-            botonIngresar.addEventListener('click', function(event){
-                event.preventDefault();
-                
-                if(iniciarSesion()){
-                    window.location.href = "{% url 'InicioSesionIniciada' %}";
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>

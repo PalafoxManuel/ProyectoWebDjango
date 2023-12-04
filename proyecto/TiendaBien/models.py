@@ -1,5 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator
+from django.contrib.auth.models import User
+from django.contrib.auth.models import User as AuthUser, UserManager
 
 # Create your models here.
         
@@ -89,3 +91,13 @@ class DetalleCompra(models.Model):
 
     class Meta:
         db_table = 'detalleCompra'
+
+class User(AuthUser):
+    class Meta:
+        db_table = 'user'
+
+    telefono = models.CharField(max_length=50, null=True, blank=True)
+    direccion = models.CharField(max_length=1000, null=True, blank=True)
+
+    objects = UserManager()
+                

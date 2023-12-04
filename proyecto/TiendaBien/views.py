@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.db import connection
 from django.contrib import messages
 from django.urls import reverse
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 
 # Create your views here.
 def busqueda(request):
@@ -62,13 +64,15 @@ def registrarUsuario(request):
         contra = request.POST['contra']
 
         try:
-            with connection.cursor() as cursor:
-                # Llamada al procedimiento almacenado
-                cursor.callproc('sp_CrearUsuarioConCarrito', [nombre, apellido, correo, telefono, direccion, contra, 0, ''])
-
-                # Éxito, el usuario se creó correctamente
-                messages.success(request, 'Usuario creado exitosamente.')
-                return redirect('InicioSesionIniciada')
+            user = User.objects.create_user(
+                    username=correo,
+                    email=correo,
+                    first_name=nombre,
+                    password=contra,
+                    last_name=apellido)
+            user.save()
+            login(request, user)
+            return redirect('InicioSesionIniciada') 
 
         except Exception as e:
             # Manejo de errores
@@ -78,3 +82,31 @@ def registrarUsuario(request):
     # Si no es una solicitud POST, simplemente renderiza la página de registro
     context = {}
     return render(request, 'TiendaBien/Registro.html', context)
+
+def ISU(request):
+    if request.method == 'POST':
+        correo = request.POST['correo']
+        contrasena = request.POST['contrasena']
+        
+        print(f'Correo: {correo}, Contraseña: {contrasena}')
+        
+        try:
+            user = authenticate(request, username=correo, password=contrasena)
+
+            if user is not None:
+                print('Usuario autenticado') 
+                login(request, user)
+                messages.success(request, 'Inicio de sesión exitoso.')
+                return redirect('InicioSesionIniciada')
+            else:
+                print('Credenciales incorrectas') 
+                messages.error(request, 'Correo o contraseña incorrectos.')
+                return render(request, 'TiendaBien/InicioSesion.html')
+        except Exception as e:
+            print(f'Error al iniciar sesión: {str(e)}')
+            messages.error(request, 'Error al iniciar sesión.')
+    elif request.method == "GET":
+        return render(request, 'TiendaBien/InicioSesion.html')
+    
+
+    
