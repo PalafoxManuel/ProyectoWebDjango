@@ -124,8 +124,7 @@
                 {% for producto in resultados %}
                     <div class="content-aud">
                         <div class="audifono">
-                            <!-- Aquí utiliza las propiedades del producto en lugar de los valores estáticos -->
-                           
+                            
                                 <div> 
                                     {% if producto.descuento != 0 %}
                                     <p id="desc">{{ producto.descuento }} % Desc.</p>
@@ -133,7 +132,7 @@
                                 </div> 
                            
                             <div class="imgAud">
-                                <img src="{{ producto.urlimagen }}" alt="" height="200px">
+                                <img src="../{{ producto.urlimagen }}" alt="" height="200px">
                             </div>
                             <div><b>{{ producto.nombre }}</b></div>
                             <div>

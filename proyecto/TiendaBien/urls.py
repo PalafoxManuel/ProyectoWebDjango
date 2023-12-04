@@ -13,5 +13,7 @@ urlpatterns = [
     path('InicioSesionIniciada/', views.InicioSesionIniciada, name='InicioSesionIniciada'),
     path('Registro/', views.Registro, name='Registro'),
     path('ver-producto/', views.verProducto, name='verProducto'),
-    
+
+    path('categoria/<str:nombre_categoria>/', views.productos_por_categoria, name='productos_por_categoria'),
+
 ]

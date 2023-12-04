@@ -27,6 +27,7 @@
                     <div class="info-p">
                         
                         <div class="titulo"> <h1>{{ producto.nombre }}</h1> </div>
+                        <div>Stock: {{producto.stock}}</div>
                         <div class="div-desc">
                             <p id="t-sub">MX ${{ producto.precio }}</p>
                             {% if producto.descuento != 0 %}
@@ -53,7 +54,7 @@
                             <div id="cant">
                                 <button onclick="decrementar()">-</button>
                                 <p id="cantidad">1</p>
-                                <button onclick="incrementar({{ producto.stock }})">+</button>
+                                <button onclick="incrementar()">+</button>
                             </div>
                         </div>
                         <div class="div-botones">
@@ -303,9 +304,9 @@
     }
 
     // Función para incrementar la cantidad
-    function incrementar(stock) {
+    function incrementar() {
         var cantidad = parseInt(cantidadElemento.textContent);
-        console.log('as'+stock);
+       
         cantidad++;
         
         cantidadElemento.textContent = cantidad;

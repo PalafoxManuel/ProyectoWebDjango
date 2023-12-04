@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
-from .models import Producto  # Asegúrate de importar tu modelo de Producto
+from .models import ProductoCategoria,Producto  # Asegúrate de importar tu modelo de Producto
 
 def busqueda(request):
     if 'q' in request.GET:
@@ -20,6 +20,14 @@ def busqueda(request):
 
     return render(request, 'TiendaBien/busqueda.html') 
     
+def productos_por_categoria(request, nombre_categoria):
+    # Obtener los productos para la categoría seleccionada
+    productos_categoria = ProductoCategoria.objects.filter(categoria__nombreCategoria=nombre_categoria)
+    productos_ids = [pc.producto_id for pc in productos_categoria]
+    resultados = Producto.objects.filter(id__in=productos_ids)
+
+    context = {'resultados': resultados}
+    return render(request, 'TiendaBien/busqueda.html', context)
 
 def carrito(request):
     context = {}
@@ -51,7 +59,7 @@ def Registro(request):
 
 def verProducto(request):
     if request.method == 'POST':
-        producto_id = request.POST.get('producto_id')
+        producto_id = request.POST['producto_id']
         try:
             producto = Producto.objects.get(id=producto_id)
             return render(request, 'TiendaBien/ver-producto.html', {'producto': producto})

@@ -68,25 +68,24 @@
             <div class="Barra">
                 <div class="tipos">
                     <div>
-                        <a href="{% url 'InicioSesionIniciada' %}">
-                            <label>Inicio</label>
+                        <a href="{% url 'productos_por_categoria' 'Audifonos' %}">
+                            <label>Audifonos</label>
                         </a>
                     </div>
                     <div>
-                        <label class="lomas">Lo mas vendido</label>
-                        <img class="star" src="{% static 'TiendaBien/imagenes/estrella.png' %}">
+                        <a href="{% url 'productos_por_categoria' 'Laptops' %}">
+                            <label class="lomas">Laptops</label>
+                        </a>
                     </div>
                     <div>
-                        <label>Promociones</label>
+                        <a href="{% url 'productos_por_categoria' 'Celulares' %}">
+                            <label>Celulares</label>
+                        </a>
                     </div>
                     <div>
-                        <label>Lo nuevo</label>
-                    </div>
-                    <div>
-                        <label>Musica</label>
-                    </div>
-                    <div>
-                        <label>Electronicos</label>
+                        <a href="{% url 'productos_por_categoria' 'Componentes de PC' %}">
+                            <label>Componentes de PC</label>
+                        </a>
                     </div>
                     
                 </div>
