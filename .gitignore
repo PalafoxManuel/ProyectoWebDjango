@@ -7,7 +7,7 @@ proyecto/.env
 #Cachexd
 proyecto/TiendaBien/__pycache__
 proyecto/TiendaBien/migrations/__pycache__
-proyecto/proyect/__pycache__
+proyecto/proyecto/__pycache__
 
 #Directorios de pruebas y archivos temporales
 proyecto/TiendaBien/tests/*
