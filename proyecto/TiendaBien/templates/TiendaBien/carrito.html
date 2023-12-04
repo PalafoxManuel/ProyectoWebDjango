@@ -11,81 +11,10 @@
 </head>
 
 <body>
-    <nav>
-        <div class="Buscador">
-            <div class="logo">
-                <a href="{% url 'InicioSesionIniciada' %}">
-                    <img class="icono" src="{% static 'TiendaBien/imagenes/icon.png' %}">
-                </a>
-                <a href="{% url 'InicioSesionIniciada' %}">
-                    <label>FOXSHOP</label>
-                </a>
-            </div>
-            <div class="search">
-                <div class="categorias">
-                    <label>Categorias</label>
-                    <img class="flecha" src="{% static 'TiendaBien/imagenes/flecha.png' %}">
-                </div>
-                <div class="buscar">
-                    <input id="input1" type="text" placeholder="Buscar en foxshop.com">
-                </div>
-                <a href="{% url 'busqueda' %}">
-                    <img class="lupa" src="{% static 'TiendaBien/imagenes/lupa.jpg' %}">
-                </a>
-            </div>
-            <input type="checkbox" class="hidden-checkbox">
-            <div class="usuario">
-                <img class="user" src="{% static 'TiendaBien/imagenes/user.png' %}">
-                <label class="bienvenidoTexto">Bienvenido,</label>
-                <label id="nombreUsuario" class="nombreUsuario" for="menuCheckbox">Manuel P.</label>
-                <input type="checkbox" id="menuCheckbox" class="hidden-checkbox">
-                <div class="desplegable">
-                    <div class="menuOpciones">
-                        <a href="{% url 'configU' %}">Configuracion</a>
-                        <a href="{% url 'InicioSesion' %}">Cerrar Sesion</a>
-                    </div>
-                </div>
-            </div>
-            <div class="compra">
-                <a href="{% url 'carrito' %}">
-                    <img src="{% static 'TiendaBien/imagenes/carrito.png' %}">
-                    <div class="texto">
-                        <label>Carrito</label>
-                </a>
-            </div>
-        </div>
-        </div>
-        <div class="Barra">
-            <div class="tipos">
-                <div>
-                    <a href="{% url 'InicioSesionIniciada' %}">
-                        <label>Inicio</label>
-                    </a>
-                </div>
-                <div>
-                    <label class="lomas">Lo mas vendido</label>
-                    <img class="star" src="{% static 'TiendaBien/imagenes/estrella.png' %}">
-                </div>
-                <div>
-                    <label>Promociones</label>
-                </div>
-                <div>
-                    <label>Lo nuevo</label>
-                </div>
-                <div>
-                    <label>Musica</label>
-                </div>
-                <div>
-                    <label>Electronicos</label>
-                </div>
-                <div>
-                    <a href="{% url 'historialCompra' %}">
-                        <label>Historial de compra</label>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    {% include "navbar.html" %} 
+
+       
+    
     <div class="Principal">
         <div class="contenido">
             <div class="tucarrito">

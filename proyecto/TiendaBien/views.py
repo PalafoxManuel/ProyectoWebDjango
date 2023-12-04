@@ -5,10 +5,21 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
-# Create your views here.
+from .models import Producto  # Asegúrate de importar tu modelo de Producto
+
 def busqueda(request):
-    context = {}
-    return render(request, 'TiendaBien/busqueda.html', context)
+    if 'q' in request.GET:
+        query = request.GET['q']
+        resultados = Producto.objects.filter(nombre__icontains=query)  # Realiza la búsqueda por nombre
+
+        context = {
+            'resultados': resultados,
+            'query': query,
+        }
+        return render(request, 'TiendaBien/busqueda.html', context)
+
+    return render(request, 'TiendaBien/busqueda.html') 
+    
 
 def carrito(request):
     context = {}
@@ -38,9 +49,18 @@ def Registro(request):
     context={}
     return render(request, 'TiendaBien/Registro.html', context)
 
-def verCascos(request):
-    context={}
-    return render(request, 'TiendaBien/ver-productoCASCOSNEGROS.html', context)
+def verProducto(request):
+    if request.method == 'POST':
+        producto_id = request.POST.get('producto_id')
+        try:
+            producto = Producto.objects.get(id=producto_id)
+            return render(request, 'TiendaBien/ver-producto.html', {'producto': producto})
+        except Producto.DoesNotExist:
+            # Manejo si el producto no existe
+            return render(request, 'TiendaBien/ver-producto.html', {'error': 'El producto no existe'})
+    else:
+        # Manejo si no se envió un POST (puede ser un GET u otro método)
+        return render(request, 'TiendaBien/ver-producto.html', {'error': 'Método no permitido'})
 
 def verRedmi(request):
     context={}

@@ -10,81 +10,7 @@
 </head>
 
 <body>
-    <nav>
-        <div class="Buscador">
-            <div class="logo">
-                <a href="{% url 'InicioSesionIniciada' %}">
-                    <img class="icono" src="{% static 'TiendaBien/imagenes/icon.png' %}">
-                </a>
-                <a href="{% url 'InicioSesionIniciada' %}">
-                    <label>FOXSHOP</label>
-                </a>
-            </div>
-            <div class="search">
-                <div class="categorias">
-                    <label>Categorias</label>
-                    <img class="flecha" src="{% static 'TiendaBien/imagenes/flecha.png' %}">
-                </div>
-                <div class="buscar">
-                    <input id="input1" type="text" placeholder="Buscar en foxshop.com">
-                </div>
-                <a href="{% url 'busqueda' %}">
-                    <img class="lupa" src="{% static 'TiendaBien/imagenes/lupa.jpg' %}">
-                </a>
-            </div>
-            <input type="checkbox" class="hidden-checkbox">
-            <div class="usuario">
-                <img class="user" src="{% static 'TiendaBien/imagenes/user.png' %}">
-                <label class="bienvenidoTexto">Bienvenido,</label>
-                <label id="nombreUsuario" class="nombreUsuario" for="menuCheckbox">Name</label>
-                <input type="checkbox" id="menuCheckbox" class="hidden-checkbox">
-                <div class="desplegable">
-                    <div class="menuOpciones">
-                        <a href="{% url 'configU' %}">Configuracion</a>
-                        <a href="{% url 'InicioSesion' %}">Cerrar Sesion</a>
-                    </div>
-                </div>
-            </div>
-            <div class="compra">
-                <a href="{% url 'carrito' %}">
-                    <img src="{% static 'TiendaBien/imagenes/carrito.png' %}">
-                    <div class="texto">
-                        <label>Carrito</label>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="Barra">
-            <div class="tipos">
-                <div>
-                    <a href="{% url 'InicioSesionIniciada' %}">
-                        <label>Inicio</label>
-                    </a>
-                </div>
-                <div>
-                    <label class="lomas">Lo mas vendido</label>
-                    <img class="star" src="{% static 'TiendaBien/imagenes/estrella.png' %}">
-                </div>
-                <div>
-                    <label>Promociones</label>
-                </div>
-                <div>
-                    <label>Lo nuevo</label>
-                </div>
-                <div>
-                    <label>Musica</label>
-                </div>
-                <div>
-                    <label>Electronicos</label>
-                </div>
-                <div>
-                    <a href="{% url 'historialCompra' %}">
-                        <label>Historial de compra</label>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    {% include "navbar.html" %}
 
     <main>
         <div class="contenedor-cat">
@@ -189,180 +115,68 @@
         <div class="contenido">
             <div class="cont-result-nav">
                 <div class="resultados">
-                    <p>1,780 resultados para "Audífonos"</p>
-                    <div>
-                        <label for="Ordenar">Ordenar por</label>
-                        <select name="Ordenar" id="filtro">
-                            <option value="Mas-relevantes">Más relevantes</option>
-                            <option value="Menor-precio">Menor precio</option>
-                            <option value="Mas-pedidos">Más pedidos</option>
-                        </select>
-                    </div>
+                    <p>{{ resultados|length }} resultados para "{{ query }}"</p>
+                    
                 </div>
-                <div class="navegacion">
-                    <div class="n-pag">
-                        <input type="button" value="< Anterior" class="back-style">
-                        <input type="button" value="1" id="uno">
-                        <input type="button" value="2" class="back-style">
-                        <input type="button" value="3" class="back-style">
-                        <input type="button" value="4" class="back-style">
-                        <input type="button" value="5" class="back-style">
-                        <input type="button" value="..." class="back-style">
-                        <input type="button" value="140" class="back-style">
-                        <input type="button" value="Siguiente >" class="back-style">
-                    </div>
-                    <div class="ir-pag">
-                        <p>Ir a página</p>
-                        <input type="text" placeholder="#" class="back-style">
-                        <button class="back-style">Ir</button>
-                    </div>
-                </div>
+                
             </div>
             <div class="productos">
-                <div class="content-aud">
-                    <div class="audifono">
-                        <div>
-                            <p id="desc">10% Desc.</p>
-                        </div>
-                        <div class="imgAud">
-                            <img src="{% static 'TiendaBien/img/audifonos/audSony.png' %}" alt="" height="200px">
-                        </div>
-                        <div><b>Audífonos Inalámbricos Wh-ch720n Color Negro</b></div>
-                        <div>
-                            <p id="t-sub">MX $2,548.00</p>
-                        </div>
-                        <div>
-                            <p>MX $2,293.00</p>
-                        </div>
-                        <div class="p-rating">
-                            <b>5</b>
-                            <div>
-                                <img src="{% static 'TiendaBien/img/orange-star.png' %}" alt="" height="15px">
-                                <img src="{% static 'TiendaBien/img/orange-star.png' %}" alt="" height="15px">
-                                <img src="{% static 'TiendaBien/img/orange-star.png' %}" alt="" height="15px">
-                                <img src="{% static 'TiendaBien/img/orange-star.png' %}" alt="" height="15px">
-                                <img src="{% static 'TiendaBien/img/orange-star.png' %}" alt="" height="15px">
+                {% for producto in resultados %}
+                    <div class="content-aud">
+                        <div class="audifono">
+                            <!-- Aquí utiliza las propiedades del producto en lugar de los valores estáticos -->
+                           
+                                <div> 
+                                    {% if producto.descuento != 0 %}
+                                    <p id="desc">{{ producto.descuento }} Desc.</p>
+                                    {% endif %}
+                                </div> 
+                           
+                            <div class="imgAud">
+                                <img src="{{ producto.urlimagen }}" alt="" height="200px">
                             </div>
-                            <p>(500)</p>
-                        </div>
-                        <div class="btn-p">
+                            <div><b>{{ producto.nombre }}</b></div>
                             <div>
-                                <form action="{% url 'verCascos' %}" class="formulario">
-                                    <button type="submit">
-                                        <img src="{% static 'TiendaBien/img/ver.png' %}" alt="" height="20px"> Ver producto
+                                <p id="t-sub">MX ${{ producto.precio }}</p>
+                            </div>
+                            <div>
+                                <p>MX ${{ producto.precioDescuento }}</p>
+                            </div>
+                            <div class="p-rating">
+                                <b>{{ producto.estrellas }}</b>
+                                <div>
+                                    Estrellas
+                                </div>
+                                <!-- <p>({{ producto.reviews }})</p> -->
+                            </div>
+                            <div class="btn-p">
+                                <div>
+                                    <!-- Asegúrate de usar las URL correctas para ver el producto y agregarlo al carrito -->
+                                    <form action="{% url 'verProducto' %}" method="post" class="formulario">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="producto_id" value="{{ producto.id }}">
+                                        <button type="submit">
+                                            <img src="{% static 'TiendaBien/img/ver.png' %}" alt="" height="20px"> Ver producto
+                                        </button>
+                                    </form>
+                                </div>
+                                <div>
+                                    <button type="submit" id="{{ producto.id }}">
+                                        <img src="{% static 'TiendaBien/img/add.png' %}" alt="" height="20px" id="{{ producto.id }}">
                                     </button>
-                                </form>
+                                </div>
                             </div>
-                            <div>
-                                <button type="submit" id="CASCOSNEGROS">
-                                    <img src="{% static 'TiendaBien/img/add.png' %}" alt="" height="20px" id="CASCOSNEGROS">
-                                </button>
+                            <div class="btn-buy">
+                                <a href="{% url 'carrito' %}">
+                                    <button id="compra{{ producto.id }}"><img src="{% static 'TiendaBien/img/buy.png' %}" alt=""
+                                            height="35px">Comprar</button>
+                                </a>
                             </div>
-                        </div>
-                        <div class="btn-buy">
-                            <a href="{% url 'carrito' %}">
-                                <button id="compraCASCOSNEGROS"><img src="{% static 'TiendaBien/img/buy.png' %}" alt=""
-                                        height="35px">Comprar</button>
-                            </a>
                         </div>
                     </div>
-                </div>
-                <div class="content-aud">
-                    <div class="audifono">
-                        <div>
-                            <p id="desc">57% Desc.</p>
-                        </div>
-                        <div class="imgAud">
-                            <img src="{% static 'TiendaBien/img/audifonos/audXiaomi.png' %}" alt="" height="200px">
-                        </div>
-                        <div><b>Xiaomi 36103 Audífonos Inalámbricos Redmi Buds 3 Lite</b></div>
-                        <div>
-                            <p id="t-sub">MX $599.00</p>
-                        </div>
-                        <div>
-                            <p>MX $260.00</p>
-                        </div>
-                        <div class="p-rating">
-                            <b>4</b>
-                            <div>
-                                <img src="{% static 'TiendaBien/img/orange-star.png' %}" alt="" height="15px">
-                                <img src="{% static 'TiendaBien/img/orange-star.png' %}" alt="" height="15px">
-                                <img src="{% static 'TiendaBien/img/orange-star.png' %}" alt="" height="15px">
-                                <img src="{% static 'TiendaBien/img/orange-star.png' %}" alt="" height="15px">
-                                <img src="{% static 'TiendaBien/img/gray-star.png' %}" alt="" height="15px">
-                            </div>
-                            <p>(14,907)</p>
-                        </div>
-                        <div class="btn-p">
-                            <div>
-                                <form action="{% url 'verRedmi' %}" class="formulario">
-                                    <button type="submit">
-                                        <img src="{% static 'TiendaBien/img/ver.png' %}" alt="" height="20px"> Ver producto
-                                    </button>
-                                </form>
-                            </div>
-                            <div>
-                                <button type="submit" id="REDMI">
-                                    <img src="{% static 'TiendaBien/img/add.png' %}" alt="" height="20px" id="REDMI">
-                                </button>
-                            </div>
-                        </div>
-                        <div class="btn-buy">
-                            <a href="{% url 'carrito' %}">
-                                <button id="compraREDMI"><img src="{% static 'TiendaBien/img/buy.png' %}" alt=""
-                                        height="35px">Comprar</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="content-aud">
-                    <div class="audifono">
-                        <div>
-                            <p id="desc">50% Desc.</p>
-                        </div>
-                        <div class="imgAud">
-                            <img src="{% static 'TiendaBien/img/audifonos/audSkull.png' %}" alt="" height="200px">
-                        </div>
-                        <div><b>SKULLCANDY Audífonos Alámbricos Ink d+ Negro IN Ear</b></div>
-                        <div>
-                            <p id="t-sub">MX $499.00</p>
-                        </div>
-                        <div>
-                            <p>MX $249.50</p>
-                        </div>
-                        <div class="p-rating">
-                            <b>4</b>
-                            <div>
-                                <img src="{% static 'TiendaBien/img/orange-star.png' %}" alt="" height="15px">
-                                <img src="{% static 'TiendaBien/img/orange-star.png' %}" alt="" height="15px">
-                                <img src="{% static 'TiendaBien/img/orange-star.png' %}" alt="" height="15px">
-                                <img src="{% static 'TiendaBien/img/orange-star.png' %}" alt="" height="15px">
-                                <img src="{% static 'TiendaBien/img/gray-star.png' %}" alt="" height="15px">
-                            </div>
-                            <p>(6,950)</p>
-                        </div>
-                        <div class="btn-p">
-                            <div>
-                                <form action="{% url 'verSkull' %}" class="formulario">
-                                    <button type="submit">
-                                        <img src="{% static 'TiendaBien/img/ver.png' %}" alt="" height="20px"> Ver producto
-                                    </button>
-                                </form>
-                            </div>
-                            <div>
-                                <button type="submit" id="SKULLCANDY">
-                                    <img src="{% static 'TiendaBien/img/add.png' %}" alt="" height="20px" id="SKULLCANDY">
-                                </button>
-                            </div>
-                        </div>
-                        <div class="btn-buy">
-                            <a href="{% url 'carrito' %}">
-                                <button id="compraSKULLCANDY"><img src="{% static 'TiendaBien/img/buy.png' %}" alt=""
-                                        height="35px">Comprar</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
+
+                
             </div>
         </div>
 
