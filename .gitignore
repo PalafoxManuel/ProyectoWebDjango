@@ -3,3 +3,5 @@ proyecto/.env
 
 #CARPETA VENV IGNORADA
 .venv/
+
+__pycache__
