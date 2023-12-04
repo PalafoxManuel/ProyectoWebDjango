@@ -25,7 +25,7 @@
                 <label>REGISTRO</label>
             </div>
             <div class="inputs">
-                
+            <form action="{% url 'registrarUsuario' %}" method="post"> {% csrf_token %}
                 <input class="innombre" type="text" id="nombre" name="nombre" placeholder="Nombres" required> <br> <br>
                 
                 <input class="inapellido" type="text" id="apellido" name="apellido" placeholder="Apellidos" required> <br> <br>
@@ -50,6 +50,7 @@
                     </a>
                     <input class="registro" type="submit" value="Registrarse">
                 </div>
+            </form>
                 <div class="label3">
                     <label>Ya tienes cuenta?</label> 
                     <div class="click">
@@ -62,7 +63,7 @@
         </div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        /*document.addEventListener('DOMContentLoaded', function () {
             // Asociar la función `registrarUsuario` al clic del botón de registro
             const botonRegistro = document.querySelector('.registro');
             botonRegistro.addEventListener('click', function(event){
@@ -73,7 +74,7 @@
                 }
                 
             })
-        });
+        });*/
     </script>
 </body>
 </html>
