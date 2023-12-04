@@ -4,4 +4,12 @@ proyecto/.env
 #CARPETA VENV IGNORADA
 .venv/
 
-__pycache__
+#Cachexd
+proyecto/TiendaBien/__pycache__
+proyecto/TiendaBien/migrations/__pycache__
+proyecto/proyect/__pycache__
+
+#Directorios de pruebas y archivos temporales
+proyecto/TiendaBien/tests/*
+proyecto/TiendaBien/tmp*
+proyecto/TiendaBien/db.sqlite3
