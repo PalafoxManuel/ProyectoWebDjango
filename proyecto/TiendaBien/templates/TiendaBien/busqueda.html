@@ -136,7 +136,9 @@
                             </div>
                             <div><b>{{ producto.nombre }}</b></div>
                             <div>
-                                <p id="t-sub">MX ${{ producto.precio }}</p>
+                                {% if producto.descuento != 0 %}
+                                    <p id="t-sub">MX ${{ producto.precio }}</p>
+                                {% endif %}
                             </div>
                             <div>
                                 <p>MX ${{ producto.precioDescuento }}</p>
@@ -163,7 +165,7 @@
                                     <button type="button" class="agregarCarritoBtn"
                                             data-producto-id="{{ producto.id }}"
                                             data-producto-nombre="{{ producto.nombre }}"
-                                            data-producto-precio="{{ producto.precio }}"
+                                            data-producto-precio="{{ producto.precioDescuento }}"
                                             data-producto-urlimagen="{{ producto.urlimagen }}",
                                             data=producto-stock="{{ producto.stock }}">
                                         <img src="{% static 'TiendaBien/img/add.png' %}" alt="" height="20px">
@@ -175,7 +177,7 @@
                                     <button type="button" class="compraBtn"
                                             data-producto-id="{{ producto.id }}"
                                             data-producto-nombre="{{ producto.nombre }}"
-                                            data-producto-precio="{{ producto.precio }}"
+                                            data-producto-precio="{{ producto.precioDescuento }}"
                                             data-producto-urlimagen="{{ producto.urlimagen }}"
                                             data=producto-stock="{{ producto.stock }}">
 
