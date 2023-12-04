@@ -63,18 +63,11 @@
         </div>
     </div>
     <script>
-        /*document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function () {
             // Asociar la función `registrarUsuario` al clic del botón de registro
             const botonRegistro = document.querySelector('.registro');
-            botonRegistro.addEventListener('click', function(event){
-                event.preventDefault();
-
-                if(registrarUsuario()){
-                    window.location.href = "{% url 'InicioSesionIniciada' %}" ;
-                }
-                
-            })
-        });*/
+            botonRegistro.addEventListener('click', registrarUsuario);
+        });
     </script>
 </body>
 </html>

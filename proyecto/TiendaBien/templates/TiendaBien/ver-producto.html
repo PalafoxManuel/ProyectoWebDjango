@@ -35,13 +35,8 @@
                         </div>
                         <div><p>MX ${{ producto.precioDescuento }}</p></div>
                         <div class="p-rating">
-                            <b>{{ producto.estrellas }}</b> <!-- Accede a la cantidad de estrellas del producto -->
-                            <div>
-                                <!-- Itera para mostrar las estrellas -->
-                                {% for _ in producto.estrellas_range %}
-                                    <img src="{% static 'TiendaBien/img/orange-star.png' %}" alt="" height="15px">
-                                {% endfor %}
-                            </div>
+                            <b>{{ producto.estrellas }} Estrellas</b> <!-- Accede a la cantidad de estrellas del producto -->
+                           
                         </div>
                         <div class="div-color">
                             <p>Color:</p>
@@ -58,11 +53,17 @@
                             <div id="cant">
                                 <button onclick="decrementar()">-</button>
                                 <p id="cantidad">1</p>
-                                <button onclick="incrementar()">+</button>
+                                <button onclick="incrementar({{ producto.stock }})">+</button>
                             </div>
                         </div>
                         <div class="div-botones">
-                            <button type= "submit" id = "CASCOSNEGROS"><img src="{% static 'TiendaBien/img/add.png' %}" alt="" height="20px">Añadir al carrito</button>
+                            <button type= "submit" id = "btnAnadir"
+                            data-producto-id="{{ producto.id }}"
+                            data-producto-nombre="{{ producto.nombre }}"
+                            data-producto-precio="{{ producto.precio }}"
+                            data-producto-urlimagen="{{ producto.urlimagen }}",
+                            data=producto-stock="{{ producto.stock }}">
+                            <img src="{% static 'TiendaBien/img/add.png' %}" alt="" height="20px">Añadir al carrito</button>
                         </div>
                             
                     </div>
@@ -270,24 +271,24 @@
         };
         
         //FUNCIONALIDAD AGREGAR CARRITO
-        const btnAgregarCarrito1 = document.getElementById('CASCOSNEGROS');
+            const btnAgregarCarrito1 = document.getElementById('btnAnadir');
+            
+            btnAgregarCarrito1.addEventListener('click', function(){
+                const idProducto = this.getAttribute('data-producto-id');
+                const nombreProducto = this.getAttribute('data-producto-nombre');
+                const precio = this.getAttribute('data-producto-precio');
+                const urlImagen = this.getAttribute('data-producto-urlimagen');
+                // Obtener la cantidad seleccionada del HTML
+                const cantidadSeleccionada = parseInt(document.getElementById('cantidad').textContent);
+                stock=this.getAttribute('data=producto-stock');
+                // Crear el producto
+                const nuevoPro = producto.crearProducto(urlImagen,nombreProducto,precio,idProducto);
 
-        btnAgregarCarrito1.addEventListener('click', function(){
-            const urlImagen = "../../static/TiendaBien/img/audifonos/audSony.png";
-            const nombreProducto = "Audífonos Inalámbricos Wh-ch720n Color Negro";
-            const precio = 2293.00;
-        
-            // Obtener la cantidad seleccionada del HTML
-            const cantidadSeleccionada = parseInt(document.getElementById('cantidad').textContent);
+                // Agregar al carrito teniendo en cuenta la cantidad seleccionada
+                producto.agregarAlCarrito(usuarioActual, nuevoPro, cantidadSeleccionada);
+            })
 
-            // Crear el producto
-            const cascosNegros = producto.crearProducto(urlImagen, nombreProducto, precio);
-
-            // Agregar al carrito teniendo en cuenta la cantidad seleccionada
-            producto.agregarAlCarrito(usuarioActual, cascosNegros, cantidadSeleccionada);
-        })
-
-    });
+        });
 
     // Obtener el elemento de la cantidad
     var cantidadElemento = document.getElementById("cantidad");
@@ -302,9 +303,11 @@
     }
 
     // Función para incrementar la cantidad
-    function incrementar() {
+    function incrementar(stock) {
         var cantidad = parseInt(cantidadElemento.textContent);
+        console.log('as'+stock);
         cantidad++;
+        
         cantidadElemento.textContent = cantidad;
     }
 

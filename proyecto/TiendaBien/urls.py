@@ -13,6 +13,5 @@ urlpatterns = [
     path('InicioSesionIniciada/', views.InicioSesionIniciada, name='InicioSesionIniciada'),
     path('Registro/', views.Registro, name='Registro'),
     path('ver-producto/', views.verProducto, name='verProducto'),
-    path('ver-productoREDMI/', views.verRedmi, name='verRedmi'),
-    path('ver-productoSKULLCANDY/', views.verSkull, name='verSkull')
+    
 ]

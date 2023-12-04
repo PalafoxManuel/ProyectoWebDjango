@@ -128,7 +128,7 @@
                            
                                 <div> 
                                     {% if producto.descuento != 0 %}
-                                    <p id="desc">{{ producto.descuento }} Desc.</p>
+                                    <p id="desc">{{ producto.descuento }} % Desc.</p>
                                     {% endif %}
                                 </div> 
                            
@@ -155,23 +155,36 @@
                                     <form action="{% url 'verProducto' %}" method="post" class="formulario">
                                         {% csrf_token %}
                                         <input type="hidden" name="producto_id" value="{{ producto.id }}">
-                                        <button type="submit">
+                                        <button type="submit" id="verBtn{{ producto.id }}">
                                             <img src="{% static 'TiendaBien/img/ver.png' %}" alt="" height="20px"> Ver producto
                                         </button>
                                     </form>
                                 </div>
                                 <div>
-                                    <button type="submit" id="{{ producto.id }}">
-                                        <img src="{% static 'TiendaBien/img/add.png' %}" alt="" height="20px" id="{{ producto.id }}">
+                                    <button type="button" class="agregarCarritoBtn"
+                                            data-producto-id="{{ producto.id }}"
+                                            data-producto-nombre="{{ producto.nombre }}"
+                                            data-producto-precio="{{ producto.precio }}"
+                                            data-producto-urlimagen="{{ producto.urlimagen }}",
+                                            data=producto-stock="{{ producto.stock }}">
+                                        <img src="{% static 'TiendaBien/img/add.png' %}" alt="" height="20px">
                                     </button>
                                 </div>
                             </div>
                             <div class="btn-buy">
                                 <a href="{% url 'carrito' %}">
-                                    <button id="compra{{ producto.id }}"><img src="{% static 'TiendaBien/img/buy.png' %}" alt=""
-                                            height="35px">Comprar</button>
+                                    <button type="button" class="compraBtn"
+                                            data-producto-id="{{ producto.id }}"
+                                            data-producto-nombre="{{ producto.nombre }}"
+                                            data-producto-precio="{{ producto.precio }}"
+                                            data-producto-urlimagen="{{ producto.urlimagen }}"
+                                            data=producto-stock="{{ producto.stock }}">
+
+                                        <img src="{% static 'TiendaBien/img/buy.png' %}" alt="" height="35px"> Comprar
+                                    </button>
                                 </a>
                             </div>
+                            
                         </div>
                     </div>
                 {% endfor %}

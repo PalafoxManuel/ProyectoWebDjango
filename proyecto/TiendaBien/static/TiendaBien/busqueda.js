@@ -1,139 +1,72 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Obtener el nombre de usuario del Local Storage
     const nombreUsuario = localStorage.getItem('nombreUsuario');
-
-    // Asignar el nombre de usuario al label
     const labelNombreUsuario = document.getElementById('nombreUsuario');
     labelNombreUsuario.textContent = nombreUsuario;
 
     const usuariosRegistrados = JSON.parse(localStorage.getItem('usuarios')) || [];
+    const usuarioActual = usuariosRegistrados.find(usuario => usuario.correo === localStorage.getItem('correo'));
 
-    const usuarioActual =usuariosRegistrados.find(usuario => usuario.correo === localStorage.getItem('correo'));
-    
-    
     const producto = {
-
-        crearProducto: function(urlImagen, nombre, precio) {
+        crearProducto: function (urlImagen, nombre, precio,id) {
             return {
                 urlImagen: urlImagen,
                 nombre: nombre,
                 precio: precio,
+                idProducto: id,
                 cantidad: 1
             };
         },
-    
-        agregarAlCarrito: function(usuarioActual, nuevoProducto) {
-            const productoEnCarrito = usuarioActual.carrito.find(producto => producto.nombre === nuevoProducto.nombre);
-    
-            if (productoEnCarrito) {
-                productoEnCarrito.cantidad += 1;
+        agregarAlCarrito: function (usuarioActual, nuevoProducto) {
+            // Verificar si usuarioActual es undefined antes de acceder a su propiedad carrito
+            if (usuarioActual && usuarioActual.carrito) {
+                const productoEnCarrito = usuarioActual.carrito.find(producto => producto.idProducto === nuevoProducto.idProducto);
+
+                if (productoEnCarrito) {
+                    productoEnCarrito.cantidad += 1;
+                } else {
+                    usuarioActual.carrito.push(nuevoProducto);
+                }
+
+                const index = usuariosRegistrados.findIndex(u => u.correo === usuarioActual.correo);
+                if (index !== -1) {
+                    usuariosRegistrados[index] = usuarioActual;
+                }
+
+                localStorage.setItem('usuarios', JSON.stringify(usuariosRegistrados));
+
+                alert('Producto agregado al carrito');
             } else {
-                usuarioActual.carrito.push(nuevoProducto);
+                console.error('El usuario actual no está definido o no tiene la propiedad "carrito".');
             }
-    
-            // Obtener la lista de usuarios del localStorage
-            const usuariosRegistrados = JSON.parse(localStorage.getItem('usuarios')) || [];
-    
-            // Encontrar y actualizar al usuario actual en la lista
-            const index = usuariosRegistrados.findIndex(u => u.correo === usuarioActual.correo);
-            if (index !== -1) {
-                usuariosRegistrados[index] = usuarioActual;
-            }
-
-            // Guardar la lista actualizada en el localStorage
-            localStorage.setItem('usuarios', JSON.stringify(usuariosRegistrados));
-
-            alert('Producto agregado al carrito');
         }
-        
     };
-    
-    //FUNCIONALIDAD AGREGAR CARRITO
-    const btnAgregarCarrito1 = document.getElementById('CASCOSNEGROS');
-    btnAgregarCarrito1.addEventListener('click', function(){
-        const urlImagen = "../../static/TiendaBien/img/audifonos/audSony.png";
-        const nombreProducto = "Audífonos Inalámbricos Wh-ch720n Color Negro";
-        const precio = 2293.00;
-    
-        //funcion crear producto
-        const cascosNegros = producto.crearProducto(urlImagen,nombreProducto,precio);
-        //funcion agregar al carrito
-        
-        producto.agregarAlCarrito(usuarioActual, cascosNegros);
-    })
+    const btnAgregarCarrito = document.querySelectorAll('.agregarCarritoBtn');
+    btnAgregarCarrito.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const idProducto = this.getAttribute('data-producto-id');
+            const nombreProducto = this.getAttribute('data-producto-nombre');
+            const precio = this.getAttribute('data-producto-precio');
+            const urlImagen = this.getAttribute('data-producto-urlimagen');
 
-    const btnAgregarCarrito2 = document.getElementById('REDMI');
-    btnAgregarCarrito2.addEventListener('click', function(){
-        const urlImagen = "../../static/TiendaBien/img/audifonos/audXiaomi.png";
-        const nombreProducto = "Xiaomi 36103 Audifonos Inalámbircos Redmi Buds 3 Lite";
-        const precio = 260.00;
-    
-        //funcion crear producto
-        const REDMI = producto.crearProducto(urlImagen,nombreProducto,precio);
-        //funcion agregar al carrito
-        
-        
-    
-        producto.agregarAlCarrito(usuarioActual, REDMI);
-    })
-
-    const btnAgregarCarrito3 = document.getElementById('SKULLCANDY');
-    btnAgregarCarrito3.addEventListener('click', function(){
-        const urlImagen = "../../static/TiendaBien/img/audifonos/audSkull.png";
-        const nombreProducto = "SKULLCANDY Audífonos Alámbricos Ink d+ Negro IN Ear";
-        const precio = 249.50;
-    
-        //funcion crear producto
-        const skullCandy = producto.crearProducto(urlImagen,nombreProducto,precio);
-        //funcion agregar al carrito
-      
-    
-        producto.agregarAlCarrito(usuarioActual, skullCandy);
-    })
-
-    //FUNCIONALIDAD AGREGAR CARRITO Y REDIRECCIONAR A PÁGINA DEL CARRITO
-    const btnComprar1 = document.querySelector('#compraCASCOSNEGROS');
-    btnComprar1.addEventListener('click', function () {
-        const urlImagen = "../../static/TiendaBien/img/audifonos/audSony.png";
-        const nombreProducto = "Audífonos Inalámbricos Wh-ch720n Color Negro";
-        const precio = 2293.00;
-
-        // Función crear producto
-        const cascosNegros = producto.crearProducto(urlImagen, nombreProducto, precio);
-        // Función agregar al carrito
-        producto.agregarAlCarrito(usuarioActual, cascosNegros);
-
-        // Redirigir a la página del carrito
-        window.location.href = "carrito.html";
+            const nuevoPro = producto.crearProducto(urlImagen,nombreProducto,precio,idProducto);
+            producto.agregarAlCarrito(usuarioActual, nuevoPro);
+            console.log('Producto agregado al carrito con ID:', idProducto);
+        });
     });
 
-    const btnComprar2 = document.querySelector('#compraREDMI');
-    btnComprar2.addEventListener('click', function () {
-        const urlImagen = "../../static/TiendaBien/img/audifonos/audXiaomi.png";
-        const nombreProducto = "Xiaomi 36103 Audífonos Inalámbircos Redmi Buds 3 Lite";
-        const precio = 260.00;
+    const btnComprar = document.querySelectorAll('.compraBtn');
 
-        // Función crear producto
-        const redmi = producto.crearProducto(urlImagen, nombreProducto, precio);
-        // Función agregar al carrito
-        producto.agregarAlCarrito(usuarioActual, redmi);
+    btnComprar.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const idProducto = this.getAttribute('data-producto-id');
+            const nombreProducto = this.getAttribute('data-producto-nombre');
+            const precio = this.getAttribute('data-producto-precio');
+            const urlImagen = this.getAttribute('data-producto-urlimagen');
 
-        // Redirigir a la página del carrito
-        window.location.href = "carrito.html";
-    });
-
-    const btnComprar3 = document.querySelector('#compraSKULLCANDY');
-    btnComprar3.addEventListener('click', function () {
-        const urlImagen = "../../static/TiendaBien/img/audifonos/audSkull.png";
-        const nombreProducto = "SKULLCANDY Audífonos Alámbricos Ink d+ Negro IN Ear";
-        const precio = 249.50;
-
-        // Función crear producto
-        const skullCandy = producto.crearProducto(urlImagen, nombreProducto, precio);
-        // Función agregar al carrito
-        producto.agregarAlCarrito(usuarioActual, skullCandy);
-
-        // Redirigir a la página del carrito
-        window.location.href = "carrito.html";
+            const nuevoPro = producto.crearProducto(urlImagen,nombreProducto,precio,idProducto);
+            producto.agregarAlCarrito(usuarioActual, nuevoPro);
+            window.location.href = "{% url 'carrito' %}";
+            console.log('Redirigiendo a la página del carrito');
+        });
     });
 });
