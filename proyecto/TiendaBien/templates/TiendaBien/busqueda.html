@@ -148,11 +148,9 @@
                                 <div>
                                     Estrellas
                                 </div>
-                                <!-- <p>({{ producto.reviews }})</p> -->
                             </div>
                             <div class="btn-p">
                                 <div>
-                                    <!-- Asegúrate de usar las URL correctas para ver el producto y agregarlo al carrito -->
                                     <form action="{% url 'verProducto' %}" method="post" class="formulario">
                                         {% csrf_token %}
                                         <input type="hidden" name="producto_id" value="{{ producto.id }}">

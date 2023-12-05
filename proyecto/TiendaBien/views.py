@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
-from .models import ProductoCategoria,Producto  # Asegúrate de importar tu modelo de Producto
+from .models import ProductoCategoria,Producto 
 
 def busqueda(request):
     if 'q' in request.GET:
